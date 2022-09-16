@@ -1308,7 +1308,8 @@ export class News extends Component {
         super();
         console.log("hello world");
         this.state = {
-
+            articles : this.articles,
+            loading: false,
         }
     }
 
@@ -1316,19 +1317,13 @@ export class News extends Component {
         return (
             <div className='container my-5'>
                 <h1>Welcome To NewsAPP - your daily news services.</h1>
-                <div className="row">
-                    <div className="col-md-3">
-                        <NewsItem title="Sports" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium assumenda aperiam quia voluptate" imageUrl="https://cdn.vox-cdn.com/thumbor/GvEqiko_ni9bbapc-_nR6yfKs5E=/0x196:2738x1630/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/23954273/1236850413.jpg" />
-                    </div>
-                    <div className="col-md-3">
-                        <NewsItem title="Sports" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium assumenda aperiam quia voluptate" />
-                    </div>
-                    <div className="col-md-3">
-                        <NewsItem title="Sports" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium assumenda aperiam quia voluptate" />
-                    </div>
-                    <div className="col-md-3">
-                        <NewsItem title="Sports" description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium assumenda aperiam quia voluptate" />
-                    </div>
+                
+                <div className="row" >
+                    {this.state.articles.map((element)=>{
+                    return <div className="col-md-3" key={element.url}>
+                            <NewsItem  title={element.title.slice(0,30)} description={element.description.slice(0,100)} imageUrl={element.urlToImage} newsURL ={element.url}/>
+                            </div>
+                    })}
                 </div>
             </div>
         )
