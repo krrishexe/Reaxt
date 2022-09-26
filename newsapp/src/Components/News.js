@@ -361,14 +361,15 @@ export class News extends Component {
         this.state = {
             articles : this.articles,
             loading: false,
+            page:1,
         }
     }
     
     async componentDidMount(){
         console.log("CDM");
-        let url = "https://newsapi.org/v2/top-headlines?country=In&apiKey=94565befd4ef427b92d8ced9a40eed8a";
+        let url = "https://newsapi.org/v2/top-headlines?country=In&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1";
         let data = await fetch(url);
-        let parsedData = data.json;
+        let parsedData = await data.json();
         console.log(parsedData);
         this.setState(
             {articles : parsedData.articles})
@@ -378,17 +379,23 @@ export class News extends Component {
     render() {
         console.log("render");
         return (
-            <div className='container my-5'>
+            <div className="container my-5">
                 <h1>Welcome To NewsAPP - your daily news services.</h1>
                 
                 <div className="row" >
                     {this.state.articles && this.state.articles.map((element)=>{
-                                            // key hamesha us element ko dete hai jo return ho raha hota hai i.e. --> in this case that is div tag.
+                                         // key hamesha us element ko dete hai jo return ho raha hota hai i.e. --> in this case that is div tag.
                     return <div className="col-md-3" key={element.url}>
                             <NewsItem  title={element.title?element.title.slice(0,40):" "} description={element.description?element.description.slice(0,100):" "} imageUrl={element.urlToImage} newsURL ={element.url} />
                             </div> 
                     })}
                 </div>
+                <div className="container d-flex justify-content-between my-6">
+                <button type="button" className="btn btn-dark mx-6">&larr; Previous</button>
+                <button type="button" className="btn btn-dark mx-6">Next &rarr;</button>
+                </div>
+
+
             </div>
         )
     }

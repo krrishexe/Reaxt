@@ -13,11 +13,11 @@ export class NewsItem extends Component {
             <div>
                 <div className="card" style={{width: "18rem"}}> 
                     {/* double "curly brackets" bcoz first one is to make it a js file and second one is for to make it an object. */}
-                    <img src={imageUrl} className="card-img-top" alt="..."/>
+                    <img src={!imageUrl?"https://cdn.vox-cdn.com/thumbor/GvEqiko_ni9bbapc-_nR6yfKs5E=/0x196:2738x1630/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/23954273/1236850413.jpg":imageUrl} className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title">{title} ...</h5>
                             <p className="card-text">{description} ...</p>
-                            <a href={newsURL} target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">Read More</a>
+                            <a href={newsURL} target="_blank" rel="noreferrer" className="btn btn-sm btn-dark">Read More</a>
                         </div>
                 </div>
             </div>
