@@ -1,6 +1,9 @@
 import React, { Component} from 'react'
 import NewsItem from './NewsItem'
 
+
+
+
 export class News extends Component {
     articles= [
         {
@@ -361,13 +364,13 @@ export class News extends Component {
         this.state = {
             articles : this.articles,
             loading: false,
-            page:1,
+            page:1
         }
     }
     
     async componentDidMount(){
         console.log("CDM");
-        let url = "https://newsapi.org/v2/top-headlines?country=In&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1&pageSize=20";
+        let url = `https://newsapi.org/v2/top-headlines?country=In&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1&pageSize${this.props.pageSize}`;
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData);
@@ -375,9 +378,9 @@ export class News extends Component {
             {articles : parsedData.articles , totalResults : parsedData.totalResults,})
     }
 
-    handlePrevClick= async ()=>{
+    handlePrevClick = async ()=>{
         console.log("previous");
-        let url = `https://newsapi.org/v2/top-headlines?country=In&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=${this.state.page -1}&pageSize=20`;
+        let url = `https://newsapi.org/v2/top-headlines?country=In&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=${this.state.page -1}&pageSize${this.props.pageSize}`;
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData);
@@ -388,13 +391,13 @@ export class News extends Component {
         })
     }
 
-    handleNextClick= async ()=>{
-        if(this.state.page +1 > Math.ceil(this.state.totalResults/20)){
+    handleNextClick = async ()=>{
+        if(this.state.page +1 > Math.ceil(this.state.totalResults/this.props.pageSize)){
             
         }
         else{
-            console.log("Next");
-            let url = `https://newsapi.org/v2/top-headlines?country=In&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=${this.state.page +1}&pageSize=20`;
+            console.log(this.props.pageSize);
+            let url = `https://newsapi.org/v2/top-headlines?country=In&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=${this.state.page +1}&pageSize${this.props.pageSize}`;
             let data = await fetch(url);
             let parsedData = await data.json();
             console.log(parsedData);
@@ -408,10 +411,10 @@ export class News extends Component {
     render() {
         console.log("render");
         return (
-            <div className="container my-5">
+            <div className="container my-5 text-center">
                 <h1>Welcome To NewsAPP - your daily news services.</h1>
                 
-                <div className="row" >
+                <div className="row my-5">
                     {this.state.articles && this.state.articles.map((element)=>{
                                                   // key hamesha us element ko dete hai jo return ho raha hota hai i.e. --> in this case that is div tag.
                     return <div className="col-md-3" key={element.url}>
@@ -423,7 +426,7 @@ export class News extends Component {
                 <div className="container d-flex justify-content-between my-6">
                 <button disabled={this.state.page<=1} type="button" className="btn btn-dark mx-6" onClick={this.handlePrevClick}> &larr; Previous</button>
 
-                <button type="button" className="btn btn-dark mx-6" onClick={this.handleNextClick}>Next &rarr;</button>
+                <button disabled={this.state.page +1 > Math.ceil(this.state.totalResults/this.props.pageSize)} type="button" className="btn btn-dark mx-6" onClick={this.handleNextClick}>Next &rarr;</button>
                 </div>
 
 
