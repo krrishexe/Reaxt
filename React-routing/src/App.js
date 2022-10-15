@@ -78,7 +78,7 @@ function App() {
         <Navbar title="V1nlands" mode={mode} togglemodeDark={togglemodeDark} buttonText={buttonText} togglemodeContrast={togglemodeContrast} togglemodeJoy={togglemodeJoy} />
         <div className='container'>
         <Hero />
-
+        <Textform />
           {/* <Routes>
             <Route exact path="/" element={<Hero />}/> */}
           {/* </Routes>
