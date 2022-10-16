@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
+import Spinner from './Spinner';
 
 
 export class News extends Component {
@@ -369,27 +370,30 @@ export class News extends Component {
 
     async componentDidMount() {
         console.log("CDM");
+        this.setState({loading:true})
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData);
         this.setState(
-            { articles: parsedData.articles, totalResults: parsedData.totalResults, })
+            { articles: parsedData.articles, totalResults: parsedData.totalResults,loading:false })
     }
 
     sportsClick = async () => {
         console.log("sports click is working");
+        this.setState({loading:true})
         let url = `https://newsapi.org/v2/everything?q=sports&from=2022-08-27&sortBy=publishedAt&category=${this.props.category}&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData);
         this.setState({
-            articles: parsedData.articles,
+            articles: parsedData.articles,loading:false,
         })
     }
 
     handlePrevClick = async () => {
         console.log("previous");
+        this.setState({loading:true})
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -397,7 +401,7 @@ export class News extends Component {
         this.setState({
             articles: parsedData.articles,
             page: this.state.page - 1,
-
+            loading:false
         })
     }
 
@@ -407,13 +411,15 @@ export class News extends Component {
         }
         else {
             console.log(this.props.pageSize);
-            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=${this.state.page + 1}&pageSize${this.props.pageSize}`;
+            this.setState({loading:true})
+            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
             let data = await fetch(url);
             let parsedData = await data.json();
             console.log(parsedData);
             this.setState({
                 articles: parsedData.articles,
                 page: this.state.page + 1,
+                loading:false,
             })
         }
     }
@@ -423,9 +429,10 @@ export class News extends Component {
         return (
             <div className="container my-5 text-center">
                 <h1>Welcome To NewsAPP - your daily news services.</h1>
+                {this.state.loading && <Spinner />}
                 <button type="button" className="btn btn-primary mx-6" onClick={this.sportsClick}>Sports</button>
                 <div className="row my-5">
-                    {this.state.articles && this.state.articles.map((element) => {
+                    {!this.state.loading && this.state.articles.map((element) => {
                         // key hamesha us element ko dete hai jo return ho raha hota hai i.e. --> in this case that is div tag.
                         return <div className="col-md-3" key={element.url}>
                             <NewsItem title={element.title ? element.title.slice(0, 40) : " "} description={element.description ? element.description.slice(0, 100) : " "} imageUrl={element.urlToImage} newsURL={element.url} />
