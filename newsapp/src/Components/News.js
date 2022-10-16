@@ -423,8 +423,6 @@ export class News extends Component {
             <div className="container my-5 text-center">
                 <h1>Welcome To NewsAPP - your daily news services.</h1>
                 <button type="button" className="btn btn-dark mx-6" onClick={this.sportsClick}> &larr; sports</button>
-                
-
                 <div className="row my-5">
                     {this.state.articles && this.state.articles.map((element) => {
                         // key hamesha us element ko dete hai jo return ho raha hota hai i.e. --> in this case that is div tag.
