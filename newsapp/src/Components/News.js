@@ -382,7 +382,7 @@ export class News extends Component {
     sportsClick = async () => {
         console.log("sports click is working");
         this.setState({loading:true})
-        let url = `https://newsapi.org/v2/everything?q=sports&from=2022-08-27&sortBy=publishedAt&category=${this.props.category}&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?q=sports&sortBy=publishedAt&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         let parsedData = await data.json();
         console.log(parsedData);
