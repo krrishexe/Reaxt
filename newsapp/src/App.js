@@ -9,25 +9,39 @@ import {
   Routes,
 } from "react-router-dom";
 
+
 class App extends Component {
   render() {
     return (
-      <div>
-        <Router>
-        <Navbar />
+      <Router>
+        <div>
+          <Navbar />
           <Routes>
-              <Route exact path="/" key={"general"}  element={<News pageSize = {8} country = {"In"} category={"general"}/>} />
-              <Route exact path="/business" key={"business"} element={<News pageSize = {8} country = {"In"} category={"business"}/>} />
-              <Route exact path="/sports" key={"sports"} element={<News pageSize = {8} country = {"In"} category={"sports"}/>} />
-              <Route exact path="/entertainment" key={"entertainment"} element={<News pageSize = {8} country = {"In"} category={"entertainment"}/>} />
-              <Route exact path="/health" key={"health"} element={<News pageSize = {8} country = {"In"} category={"health"}/>} />
-              <Route exact path="/science" key={"science"} element={<News pageSize = {8} country = {"In"} category={"science"}/>} />
-              <Route exact path="/technology" key={"technology"} element={<News pageSize = {8} country = {"In"} category={"technology"}/>} />
+
+            <Route exact path="/business" key="business" element={<News pageSize={8} country={"In"} category={"business"} />} />
+            <Route exact path="/sports" key="sports" element={<News pageSize={8} country={"In"} category={"sports"} />} />
+            <Route exact path="/entertainment" key="entertainment" element={<News pageSize={8} country={"In"} category={"entertainment"} />} />
+            <Route exact path="/health" key="health" element={<News pageSize={8} country={"In"} category={"health"} />} />
+            <Route exact path="/science" key="science" element={<News pageSize={8} country={"In"} category={"science"} />} />
+            <Route exact path="/technology" key="technology" element={<News pageSize={8} country={"In"} category={"technology"} />} />
+            <Route exact path="/" key="general" element={<News pageSize={8} country={"In"} category={"general"} />} />
+
           </Routes>
-        </Router>
-      </div>
+        </div>
+      </Router>
     );
   }
 }
 
 export default App;
+
+
+
+
+// <Route exact path="/" key={"general"}  element={<News pageSize = {8} country = {"In"} category={"general"}/>} />
+//               <Route exact path="/business" key={"business"} element={<News pageSize = {8} country = {"In"} category={"business"}/>} />
+//               <Route exact path="/sports" key={"sports"} element={<News pageSize = {8} country = {"In"} category={"sports"}/>} />
+//               <Route exact path="/entertainment" key={"entertainment"} element={<News pageSize = {8} country = {"In"} category={"entertainment"}/>} />
+//               <Route exact path="/health" key={"health"} element={<News pageSize = {8} country = {"In"} category={"health"}/>} />
+//               <Route exact path="/science" key={"science"} element={<News pageSize = {8} country = {"In"} category={"science"}/>} />
+//               <Route exact path="/technology" key={"technology"} element={<News pageSize = {8} country = {"In"} category={"technology"}/>} />

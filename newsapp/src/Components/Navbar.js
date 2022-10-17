@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export class Navbar extends Component {
 
+
     // async sportsClick() {
     //     console.log("CDM2");
     //     let url = `https://newsapi.org/v2/top-headlines?q=sports&sortBy=publishedAt&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1&pageSize=${this.props.pageSize}`;
@@ -13,6 +14,7 @@ export class Navbar extends Component {
     //     this.setState(
     //         { articles: parsedData.articles, totalResults: parsedData.totalResults, })
     // }
+    
 
     render() {
         return (
@@ -20,9 +22,9 @@ export class Navbar extends Component {
                 <nav className="navbar navbar-expand-lg  bg-primary">
                     <div className="container-fluid">
                         <Link className="navbar-brand text-light" to="/">NewsAPP</Link>
-                        {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon">Home</span>
-                        </button> */}
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
