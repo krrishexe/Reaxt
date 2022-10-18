@@ -14,7 +14,7 @@ export class Navbar extends Component {
     //     this.setState(
     //         { articles: parsedData.articles, totalResults: parsedData.totalResults, })
     // }
-    
+
 
     render() {
         return (
@@ -31,7 +31,7 @@ export class Navbar extends Component {
                                     <Link className="nav-link text-light text-light" aria-current="page" to="/business">Business</Link>
                                 </li>
                                 <li className="nav-item">
-                                <Link className="nav-link text-light" to="/sports" >Sports</Link>
+                                    <Link className="nav-link text-light" to="/sports" >Sports</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link text-light" to="/entertainment" >Entertainment</Link>
@@ -49,7 +49,6 @@ export class Navbar extends Component {
                                     <Link className="nav-link text-light" to="/technology" >Technology</Link>
                                 </li>
                             </ul>
-                            
                         </div>
                     </div>
                 </nav>

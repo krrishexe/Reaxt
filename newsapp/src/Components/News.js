@@ -370,18 +370,17 @@ export class News extends Component {
             "content": "Ellen White has called time on her glittering career following Englands victory at the Euro 2022 tournament"
         }
     ]
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         console.log("hello world");
         this.state = {
             articles: this.articles,
             loading: false,
             page: 1
         }
+        document.title =`${this.capitalizeFunc(this.props.category)} - Headlines`
     }
-
-    async componentDidMount() {
-        console.log("CDM");
+    async updateFunction(){
         this.setState({loading:true})
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
@@ -391,30 +390,16 @@ export class News extends Component {
             { articles: parsedData.articles, totalResults: parsedData.totalResults,loading:false })
     }
 
-    sportsClick = async () => {
-        console.log("sports click is working");
-        this.setState({loading:true})
-        let url = `https://newsapi.org/v2/top-headlines?q=sports&sortBy=publishedAt&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1&pageSize=${this.props.pageSize}`;
-        let data = await fetch(url);
-        let parsedData = await data.json();
-        console.log(parsedData);
-        this.setState({
-            articles: parsedData.articles,loading:false,
-        })
+    async componentDidMount() {
+        this.updateFunction();
     }
 
+
     handlePrevClick = async () => {
-        console.log("previous");
-        this.setState({loading:true})
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
-        let data = await fetch(url);
-        let parsedData = await data.json();
-        console.log(parsedData);
         this.setState({
-            articles: parsedData.articles,
-            page: this.state.page - 1,
-            loading:false
+            page : this.state.page -1
         })
+        this.updateFunction();
     }
 
     handleNextClick = async () => {
@@ -422,27 +407,24 @@ export class News extends Component {
 
         }
         else {
-            console.log(this.props.pageSize);
-            this.setState({loading:true})
-            let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
-            let data = await fetch(url);
-            let parsedData = await data.json();
-            console.log(parsedData);
             this.setState({
-                articles: parsedData.articles,
-                page: this.state.page + 1,
-                loading:false,
+                page : this.state.page + 1 
             })
+            this.updateFunction();
         }
+    }
+    capitalizeFunc=(string)=>{
+        let x = string.charAt(0).toUpperCase()
+        let y = string.slice(1,string.length)
+        return x+y;
     }
 
     render() {
         console.log("render");
         return (
             <div className="container my-5 text-center">
-                <h1>Welcome To NewsAPP - your daily news services.</h1>
+                <h1>NewsAPP - Top {(this.capitalizeFunc(this.props.category))} Headlines</h1>
                 {this.state.loading && <Spinner />}
-                <button type="button" className="btn btn-primary mx-6" onClick={this.sportsClick}>Sports</button>
                 <div className="row my-5">
                     {!this.state.loading && this.state.articles.map((element) => {
                         // key hamesha us element ko dete hai jo return ho raha hota hai i.e. --> in this case that is div tag.
