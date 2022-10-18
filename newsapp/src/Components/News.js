@@ -447,7 +447,7 @@ export class News extends Component {
                     {!this.state.loading && this.state.articles.map((element) => {
                         // key hamesha us element ko dete hai jo return ho raha hota hai i.e. --> in this case that is div tag.
                         return <div className="col-md-3" key={element.url}>
-                            <NewsItem title={element.title ? element.title.slice(0, 40) : " "} description={element.description ? element.description.slice(0, 100) : " "} imageUrl={element.urlToImage} newsURL={element.url} />
+                            <NewsItem title={element.title ? element.title.slice(0, 40) : " "} description={element.description ? element.description.slice(0, 100) : " "} imageUrl={element.urlToImage} newsURL={element.url} source={element.source.name} date={element.publishedAt}/>
                         </div>
                     })}
                 </div>
