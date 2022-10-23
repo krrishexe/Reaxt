@@ -1,13 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export class NewsItem extends Component {
+const NewsItem =(props)=>{
     
-    handleOnCLick=()=>{
-
-    }
-
-    render() {
-        let {title,description,imageUrl,newsURL,date,source} = this.props ;
+        let {title,description,imageUrl,newsURL,date,source} = props ;
         return (
             
             <div>
@@ -23,7 +18,6 @@ export class NewsItem extends Component {
                 </div>
             </div>
         )
-    }
 }
 
 export default NewsItem
