@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-export class Navbar extends Component {
-
-
+const Navbar =()=>{
     // async sportsClick() {
     //     console.log("CDM2");
     //     let url = `https://newsapi.org/v2/top-headlines?q=sports&sortBy=publishedAt&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=1&pageSize=${this.props.pageSize}`;
@@ -14,9 +12,6 @@ export class Navbar extends Component {
     //     this.setState(
     //         { articles: parsedData.articles, totalResults: parsedData.totalResults, })
     // }
-
-
-    render() {
         return (
             <div>
                 <nav className="navbar navbar-expand-lg  bg-primary">
@@ -54,7 +49,5 @@ export class Navbar extends Component {
                 </nav>
             </div>
         )
-    }
 }
-
 export default Navbar
