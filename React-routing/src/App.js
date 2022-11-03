@@ -30,9 +30,6 @@ function App() {
       // setInterval(() => {
       //   document.title ="V1nlands - purple mode enabled"
       // },1500);
-
-
-
     }
     else {
       setMode("light");
