@@ -5,12 +5,12 @@ import Navbar from './Components/Navbar';
 import Hero from './Components/Hero';
 import Textform from './Components/Textform';
 import { useState } from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Routes,
-//   // Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -71,20 +71,20 @@ function App() {
   }
   return (
     <>
-      {/* <Router> */}
+      <Router>
         <Navbar title="V1nlands" mode={mode} togglemodeDark={togglemodeDark} buttonText={buttonText} togglemodeContrast={togglemodeContrast} togglemodeJoy={togglemodeJoy} />
         <div className='container'>
-        <Hero />
-        <Textform />
-          {/* <Routes>
-            <Route exact path="/" element={<Hero />}/> */}
-          {/* </Routes>
+        {/* <Hero />
+        <Textform /> */}
           <Routes>
-            <Route exact path="/Link" element={<Textform />} />
-          </Routes> */}
+            <Route exact path="/home" element={<Hero />}/>
+          </Routes>
+          <Routes>
+            <Route exact path="/textform" element={<Textform />} />
+          </Routes>
 
         </div>
-      {/* </Router> */}
+      </Router>
     </>
   );
 }

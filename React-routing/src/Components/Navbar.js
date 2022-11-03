@@ -1,5 +1,5 @@
 import React from 'react'
-import { a } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function Navbar(props) {
     
@@ -14,12 +14,12 @@ function Navbar(props) {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-a active" aria-current="page" href="#">Home</a>
+                                <Link className="nav-a active mx-3" aria-current="page" to="/home">Home</Link>
                             </li>
-                            {/* <li className="nav-item">
-                                <a className="nav-a" href="/a">a</a>
-                            </li> */}
-                            <li className="nav-item dropdown">
+                            <li className="nav-item">
+                                <Link className="nav-a" to="/textform">TextForm</Link>
+                            </li>
+                            {/* <li className="nav-item dropdown">
                                 <a className="nav-a dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Dropdown
                                 </a>
@@ -29,7 +29,7 @@ function Navbar(props) {
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><a className="dropdown-item" href="#">Something else here</a></li>
                                 </ul>
-                            </li>
+                            </li> */}
                         </ul>
                         <button type="button" className="btn btn-dark d-flex mx-2" onClick={props.togglemodeDark}>{props.buttonText}</button>
                         <button type="button" className="btn btn-success d-flex mx-2" onClick={props.togglemodeContrast}>{props.buttonText}</button>
