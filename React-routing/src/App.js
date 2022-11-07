@@ -13,8 +13,10 @@ import {
 } from "react-router-dom";
 
 function App() {
+
   const [mode, setMode] = useState('light');
   const [buttonText, setButtonText] = useState("Dark Mode");
+
   let togglemodeDark = () => {
     if (mode === 'light') {
       setMode('secondary');
@@ -22,14 +24,14 @@ function App() {
       document.title = "V1nlands - purple mode enabled"
       setButtonText("Enable Light Mode");
 
-      // message chamkane vala code 
+                                                // message chamkane vala code 
 
-      // setInterval(() => {
-      //   document.title ="(12 New Messages)"
-      // }, 2000);
-      // setInterval(() => {
-      //   document.title ="V1nlands - purple mode enabled"
-      // },1500);
+                                                // setInterval(() => {
+                                                //   document.title ="(12 New Messages)"
+                                                // }, 2000);
+                                                // setInterval(() => {
+                                                //   document.title ="V1nlands - purple mode enabled"
+                                                // },1500);
     }
     else {
       setMode("light");
@@ -37,6 +39,8 @@ function App() {
       setButtonText("Enable Dark Mode");
     }
   }
+
+
 
   const [contrastMode, setContrastMode] = useState('light');
   let togglemodeContrast = () => {
@@ -55,6 +59,8 @@ function App() {
     }
   }
 
+
+
   const [joymode, setJoyMode] = useState('light');
   let togglemodeJoy = () => {
     if (joymode === 'light') {
@@ -69,15 +75,18 @@ function App() {
       setButtonText("Enable Light Mode");
     }
   }
+
+
+
   return (
     <>
       <Router>
         <Navbar title="V1nlands" mode={mode} togglemodeDark={togglemodeDark} buttonText={buttonText} togglemodeContrast={togglemodeContrast} togglemodeJoy={togglemodeJoy} />
         <div className='container'>
-        {/* <Hero />
+          {/* <Hero />
         <Textform /> */}
           <Routes>
-            <Route exact path="/home" element={<Hero />}/>
+            <Route exact path="/home" element={<Hero />} />
           </Routes>
           <Routes>
             <Route exact path="/textform" element={<Textform />} />

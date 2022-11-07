@@ -5,19 +5,19 @@ export default function Textform() {
     
     const [myStyle,setStyle] = useState({
         color: 'black',
-        backgroundColor:'grey',
+        backgroundColor:'#D3D3D3',
     });
     const [btnText,setBtnText] = useState("Enable Dark Mode");
 
     const handleOnClickup =()=>{
         console.log("uppercase was clicked");
         initial_text = text;
-        let a= text.toUpperCase();
+        let a = text.toUpperCase();
         setText(a);
     }
     const handleOnClicklow =()=>{
         // console.log("uppercase was clicked");
-        let a= text.toLowerCase();
+        let a = text.toLowerCase();
         setText(a);
     }
     const handleOnClickClear =()=>{
@@ -51,7 +51,7 @@ export default function Textform() {
         setText(event.target.value);
     }
 
-    const [text,setText] = useState('Enter Text Here -:');
+    const [text,setText] = useState('');
     // setText("Update text from here");
 
     return (
