@@ -27,6 +27,11 @@ const News = (props) => {
     //     setLoading(false)
     // }
 
+
+
+    // Har bar jab bhi component ya state ya props ke update hone par koi bhi cheez update krvani hoti hai to useEffect() use krte hai. 
+
+
     useEffect(() => {
         document.title = `${capitalizeFirstLetter(props.category)} - NewsMonkey`;
         fetchMoreData();

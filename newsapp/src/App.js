@@ -10,7 +10,7 @@ import {
 
 const App =()=> {
 
-  let pageSize =10;
+  let pageSize =5;
 
     return (
       <Router>
