@@ -1,10 +1,21 @@
 import React,{useState} from 'react'
 import glogo from "../Media/images/google.png"
 import alogo from "../Media/images/apple.png"
+import { GoogleLogin } from 'react-google-login'
+
+const clientId ="907758410831-9lco8i44fomo0t1bda4oa47hqnin51ih.apps.googleusercontent.com"
 
 function Login() {
     const [name,setName] = useState("johndoe@gmail.com")
     const [name1,setName1] = useState("hello123")
+
+    const onSuccess = (res) =>{
+        console.log("Succesfully Logged In : " , res)
+    }
+    const onFailure = (res) =>{
+        console.log("Succesfully Logged out : " , res)
+    }
+
   return (
     <>
     <div className='flex'>
@@ -18,6 +29,7 @@ function Login() {
         <h3>Sign in to your account</h3>
         <div className='flex space'>
             <button href='/' className='glogo'>
+
                 <img className='gap' src={glogo} alt="" height={"23px"} width={"23px"} /> <p className='para1'>Sign in with Google</p> 
             </button>
             <button className='glogo'>
@@ -38,6 +50,16 @@ function Login() {
             </form>
         </div>
         <p className='account'>Don’t have an account? <a href="#">Register here</a></p>
+
+        <GoogleLogin 
+                    clientId={clientId}
+                    buttonText='login'
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    cookiePolicy={'single_host_origin'}
+                    isSignedIn={true}
+                    style={{borderRadius:"10px",color:"red"}}
+                />
         
     </div>
     </div>
