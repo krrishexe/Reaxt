@@ -10,10 +10,16 @@ h1{
     color: white;
     font-family: 'Inter', sans-serif;
     font-size: 88px;
-
     line-height: 88px;
     font-weight: 700;
-
+}
+h2{
+    font-size: 36px;
+    line-height: 44px;
+}
+h3{
+    font-size: 16px;
+    line-height: 19px;
 }
 button{
     border:none;
@@ -41,6 +47,12 @@ input{
     width: 325px;
     border: none;
     border-radius: 10px;
+}
+a{
+    text-decoration: none;
+    color: #346BD5;
+    font-size: 16px;
+    line-height: 19px;
 }
 .board{
     display: flex;
@@ -87,4 +99,13 @@ input{
     width: 385px;
     background: #FFFFFF;
     border-radius: 20px;
+}
+.btn{
+    background: #000000;
+    color: white;
+    height: 40px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 10px;
 }

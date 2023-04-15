@@ -1,8 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
 import glogo from "../Media/images/google.png"
 import alogo from "../Media/images/apple.png"
 
 function Login() {
+    const [name,setName] = useState("johndoe@gmail.com")
+    const [name1,setName1] = useState("hello123")
   return (
     <>
     <div className='flex'>
@@ -25,10 +27,13 @@ function Login() {
         <div className="whitebg">
             <form action="">
                 <label htmlFor="" >Email address</label>
-                <input type="email" value={"johndoe@gmail.com"} />
+                <input onChange={(e) => setName(e.target.value)} type="email" value={name} />
                 <label htmlFor="">Password</label>
-                <input type="password" value={"helloworld"}/>
-                
+                <input onChange={(e) => setName1(e.target.value)} type="password" value={name1}/>
+
+                <a href='#'>Forgot Password?</a>
+
+                <button className='btn' type='submit'>Sign In</button>
             </form>
         </div>
         
