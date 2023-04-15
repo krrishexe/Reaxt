@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.flex{
+    display: flex;
+}
+h1{
+    color: white;
+    /* font-family: 'Montserrat'; */
+    font-size: 72px;
+
+}
+.board{
+    display: flex;
+    flex: 0.4;
+    height: 1024px;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+.login{
+    flex: 0.6;
+}
