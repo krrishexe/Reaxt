@@ -58,7 +58,6 @@ function Login() {
                     onFailure={onFailure}
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
-                    style={{borderRadius:"10px",color:"red"}}
                 />
         
     </div>
