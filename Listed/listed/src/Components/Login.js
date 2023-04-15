@@ -13,7 +13,7 @@ function Login() {
     </div> 
 
     <div className='login'>
-       
+       <div>
         <h2>Sign In</h2>
         <h3>Sign in to your account</h3>
         <div className='flex space'>
@@ -23,6 +23,7 @@ function Login() {
             <button className='glogo'>
                  <img className='gap' src={alogo} alt="" height={"15px"} width={"13px"} /> <p className='para1'>Sign in with Apple</p> 
             </button>
+       </div>
         </div>
         <div className="whitebg">
             <form action="">
@@ -36,6 +37,7 @@ function Login() {
                 <button className='btn' type='submit'>Sign In</button>
             </form>
         </div>
+        <p className='account'>Don’t have an account? <a href="#">Register here</a></p>
         
     </div>
     </div>

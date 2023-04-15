@@ -4,23 +4,26 @@
     padding: 0;
     box-sizing: border-box;
 }
-.flex{
-    display: flex;
+*::selection{
+    color:brown;
 }
 h1{
     color: white;
     font-family: 'Inter', sans-serif;
-    font-size: 88px;
+    font-size: 72px;
     line-height: 88px;
     font-weight: 700;
 }
 h2{
+    text-align: left;
     font-size: 36px;
     line-height: 44px;
 }
 h3{
+    text-align: left;
     font-size: 16px;
     line-height: 19px;
+    font-weight: 400;
     margin: 7px 0;
 }
 button{
@@ -38,7 +41,9 @@ label{
     text-align: left;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
+    font-weight: 500;
     line-height: 19px;
+    margin-bottom: 10px;
 }
 input{
     padding: 10px;
@@ -49,12 +54,21 @@ input{
     width: 325px;
     border: none;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 a{
+    text-align: left;
     text-decoration: none;
     color: #346BD5;
     font-size: 16px;
     line-height: 19px;
+    margin-bottom: 20px;
+}
+span{
+    color: #346BD5;
+}
+.flex{
+    display: flex;
 }
 .board{
     display: flex;
@@ -78,6 +92,7 @@ a{
 .space{
     width: 385px;
     justify-content: space-between;
+    margin-top: 20px;
 }
 .glogo{
     width: 180px;
@@ -110,4 +125,9 @@ a{
     font-size: 16px;
     line-height: 20px;
     border-radius: 10px;
+}
+.account{
+    color: #858585;
+    font-size: 16px;
+    line-height: 20px;
 }
