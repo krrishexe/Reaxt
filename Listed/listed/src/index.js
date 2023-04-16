@@ -7,6 +7,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  
   <Auth0Provider
     domain="dev-2pu7durswkbnswlq.us.auth0.com"
     clientId="mNKc1l0QAd3E84iSGa8qITZQZj5cC9Wu"
