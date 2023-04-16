@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 *::selection{
-    color:gold;
+    color:red;
 }
 h1{
     color: white;
