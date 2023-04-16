@@ -27,7 +27,11 @@ function Login() {
         <div className='flex space'>
            
             {
-                isAuthenticated ? <button className='gap glogo' onClick={() => loginWithRedirect()}> <img className='gap' src={glogo} alt="" height={"23px"} width={"23px"} /> <p className='para1'>Sign in with Google</p> </button> : ''
+                isAuthenticated ? 
+                <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                Log Out
+              </button> : 
+              <button className='gap glogo' onClick={() => loginWithRedirect()}> <img className='gap' src={glogo} alt="" height={"23px"} width={"23px"} /> <p className='para1'>Sign in with Google</p> </button>
             }
                 
             
