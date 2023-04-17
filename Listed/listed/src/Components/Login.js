@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import glogo from "../Media/images/google.png"
 import alogo from "../Media/images/apple.png"
 import { useAuth0 } from '@auth0/auth0-react'
-import Dashboard from './Dashboard';
 
 
 

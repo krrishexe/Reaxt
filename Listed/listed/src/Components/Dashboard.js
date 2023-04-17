@@ -1,4 +1,9 @@
 import React from 'react'
+import { FiPieChart } from 'react-icons/fi';
+import {HiOutlineUserCircle} from 'react-icons/hi'
+import {AiOutlineSetting} from 'react-icons/ai'
+
+
 
 
 
@@ -6,47 +11,27 @@ function Dashboard() {
 
 
   return (
-    <div>
-      <h1>Dashboard</h1>
+    <>
+      <div className='left-dash'>
+        <div className='top-content'>
+          <h1>Board.</h1>
+          <div className="list-item"><FiPieChart /><h3>Dashboard</h3></div>
+          <div className="list-item"><FiPieChart /><h3>Transactions</h3></div>
+          <div className="list-item"><FiPieChart /><h3>Schedules</h3></div>
+          <div className="list-item"><HiOutlineUserCircle /><h3>Users</h3></div>
+          <div className="list-item"><AiOutlineSetting /><h3>Settings</h3></div>
+        </div>
 
-    </div>
+        <div className='bottom-content'>
+
+        </div>
+      </div>
+
+      <div className='right-dash'>
+
+      </div>
+    </>
   )
 }
 
 export default Dashboard
-
-
-
-
-
-// import React from 'react'
-// import { GoogleLogout } from 'react-google-login'
-
-// const clientId ="907758410831-9lco8i44fomo0t1bda4oa47hqnin51ih.apps.googleusercontent.com"
-
-
-// function Dashboard() {
-
-//     const onSuccess =()=>{
-//         console.log("Logut Successful ")
-//     }
-
-//   return (
-//     <div>
-//       <h1>Dashboard</h1>
-
-//         <div id='signOutButton'>
-//             <GoogleLogout 
-//                 clientId={clientId}
-//                 buttonText={"Logout"}
-//                 onLogoutSuccess={onSuccess}
-            
-            
-//             />
-//         </div>
-
-//     </div>
-//   )
-// }
-
-// export default Dashboard
