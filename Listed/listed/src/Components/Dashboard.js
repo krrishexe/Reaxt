@@ -9,7 +9,7 @@ import pic from "../Media/images/apple.png"
 
 
 
-function Dashboard() {
+function Dashboard(props) {
 
 
   return (
