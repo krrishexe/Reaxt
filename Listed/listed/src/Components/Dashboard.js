@@ -8,8 +8,22 @@ import { AiOutlineLike } from 'react-icons/ai'
 import { FiUsers } from 'react-icons/fi'
 import "../Media/Styles/dashboard.css"
 import pic from "../Media/images/apple.png"
+import { Chart } from "react-google-charts";
 
 
+export const data = [
+  ["Year", "Guest", "User"],
+  ["Week 1", 1000, 400],
+  ["Week 2", 1170, 460],
+  ["Week 3", 660, 1120],
+  ["Week 4", 1030, 540],
+];
+
+export const options = {
+  title: "Company Performance",
+  curveType: "function",
+  legend: { position: "right" },
+};
 
 
 
@@ -51,7 +65,7 @@ function Dashboard(props) {
               <RiProjector2Line className='fontsize' />
             </div>
             <div>
-              <p>Total Revenues</p>
+              <p className='gap2'>Total Revenues</p>
               <h1 className='dash-head'>$6,392,989</h1>
             </div>
 
@@ -61,7 +75,7 @@ function Dashboard(props) {
               <TbTags className='fontsize' />
             </div>
             <div>
-              <p>Total Transactions</p>
+              <p className='gap2'>Total Transactions</p>
               <h1 className='dash-head'>2890</h1>
             </div>
 
@@ -71,7 +85,7 @@ function Dashboard(props) {
               <AiOutlineLike className='fontsize' />
             </div>
             <div>
-              <p>Total Likes</p>
+              <p className='gap2'>Total Likes</p>
               <h1 className='dash-head'>10,000</h1>
             </div>
 
@@ -81,15 +95,23 @@ function Dashboard(props) {
             <div className='icon'>
               <FiUsers className='fontsize' />
             </div>
-            <div>
-              <p>Total Users</p>
-              <h1 className='dash-head'>999</h1>
+            <div >
+              <p className='gap2'>Total Users</p>
+              <h1 className='dash-head '>999</h1>
             </div>
 
           </div>
 
         </div>
-        <div className='chart'></div>
+        <div className='chart'>
+          <Chart
+            chartType="LineChart"
+            width="130%"
+            height="400px"
+            data={data}
+            options={options}
+          />
+        </div>
         <div className='twodiv'>
           <div className='left-chart'>
 

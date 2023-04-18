@@ -20,6 +20,7 @@ h5{
 .outer{
     padding:3%;
     display: flex;
+    background: #F5F5F5;
     
 }
 .left-dash{
@@ -142,4 +143,9 @@ h5{
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-evenly;
+}
+.chart{
+    width: 40vw;
+    background: white;
+
 }
