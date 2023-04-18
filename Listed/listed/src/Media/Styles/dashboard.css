@@ -93,8 +93,15 @@ h5{
     line-height: 29px;
     font-weight: 700;
 }
+.div4{
+    display: flex;
+    justify-content: space-between;
+}
 .item{
-    border: 10px;
+    border-radius: 20px;
+    height: 120px;
+    width: 220px;
+    background: #DDEFE0;
     
 
 }

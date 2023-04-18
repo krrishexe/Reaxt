@@ -5,6 +5,7 @@ import { AiOutlineSetting } from 'react-icons/ai'
 import { BiBell } from 'react-icons/bi'
 import "../Media/Styles/dashboard.css"
 import pic from "../Media/images/apple.png"
+import DashboardItem from './DashboardItem';
 
 
 
@@ -42,7 +43,11 @@ function Dashboard(props) {
           </div>
         </div>
         <div className='div4'>
-
+          <DashboardItem color={"#DDEFE0"} />
+          <DashboardItem color={"#F4ECDD"} />
+          <DashboardItem color={"#EFDADA"} />
+          <DashboardItem color={"#DEE0EF"} />
+         
         </div>
         <div className='chart'></div>
         <div className='twodiv'>
