@@ -26,16 +26,37 @@ h5{
     background-color: black;
     flex: 0.2;
     border-radius: 30px;
-    height: 87vh;
-    
-    /* display: flex;
+    height: 130vh;
+    display: flex;
     flex-direction: column;
-    justify-content: space-around; */
+    justify-content: space-between;
 
 }
-.list-item{
+.top-content{
+    margin: 20% 0;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    
+}
+.bottom-content{
+    margin: 20% 0;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 0 20%;
+}
+.list-item{
+    display:inline-flex;
+    margin: 6% 0;
+    padding:0 25%;
+    font-size: 23px;    
+    line-height: 30px;
+}
+.gap{
+    margin-left: 15%;
+}
+.gap2{
+    margin: 10% 0;
 }
 .bold{
     font-weight: 600;
@@ -47,6 +68,6 @@ h5{
     margin-bottom: 30px;
 }
 .right-dash{
-    background: green;
+    /* background: green; */
     flex: 0.8;
 }
