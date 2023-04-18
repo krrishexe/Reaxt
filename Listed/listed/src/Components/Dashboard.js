@@ -8,23 +8,7 @@ import { AiOutlineLike } from 'react-icons/ai'
 import { FiUsers } from 'react-icons/fi'
 import "../Media/Styles/dashboard.css"
 import pic from "../Media/images/apple.png"
-import { Chart } from "react-google-charts";
 
-
-export const data = [
-  ["Year", "Guest", "User"],
-  ["Week 1", 1000, 400],
-  ["Week 2", 1170, 460],
-  ["Week 3", 660, 1120],
-  ["Week 4", 1030, 540],
-];
-
-export const options = {
-  title: "Activities",
-  curveType: "function",
-  legend: { position: "right" },
-  
-};
 
 
 
@@ -105,22 +89,42 @@ function Dashboard(props) {
 
         </div>
         <div className='chart1'>
-          <h1>Hello</h1>
-          <Chart
-            chartType="LineChart"
-            width="100%"
-            height="400px"
-            data={data}
-            options={options}
-            legendToggle
-          />
+          
         </div>
         <div className='twodiv'>
           <div className='left-chart'>
 
           </div>
           <div className='right-chart'>
+            <div className='twodiv1'>
+              <h1 className='dash-head smol'>Today's Schedule</h1>
+              <p className='smol-para'>See All &gt;</p>
+            </div>
 
+            <div>
+              <div className='top-4'>
+                <div>
+                <div className='border-style'></div>
+                </div>
+                <div className='helo'>
+                  <h3 className='smol-head'>Meeting with suppliers from Kuta Bali</h3>
+                  <p className='smol-para'>14:00-15:00</p>
+                  <p className='smol-para'>at Sunset Road,Kuta ,Bali</p>
+                </div>
+              </div>
+
+              <div className='top-4'>
+                <div>
+                <div className='border-style2'></div>
+                </div>
+                <div className='helo'>
+                  <h3 className='smol-head'>Meeting with suppliers from Kuta Bali</h3>
+                  <p className='smol-para'>14:00-15:00</p>
+                  <p className='smol-para'>at Sunset Road,Kuta ,Bali</p>
+                </div>
+              </div>
+              
+            </div>
           </div>
         </div>
       </div>
