@@ -1,11 +1,13 @@
-import React from 'react'
 import { FiPieChart } from 'react-icons/fi';
 import { HiOutlineUserCircle } from 'react-icons/hi'
 import { AiOutlineSetting } from 'react-icons/ai'
 import { BiBell } from 'react-icons/bi'
+import { RiProjector2Line } from 'react-icons/ri'
+import { TbTags } from 'react-icons/tb'
+import { AiOutlineLike } from 'react-icons/ai'
 import "../Media/Styles/dashboard.css"
 import pic from "../Media/images/apple.png"
-import DashboardItem from './DashboardItem';
+
 
 
 
@@ -43,11 +45,48 @@ function Dashboard(props) {
           </div>
         </div>
         <div className='div4'>
-          <DashboardItem color={"#DDEFE0"} />
-          <DashboardItem color={"#F4ECDD"} />
-          <DashboardItem color={"#EFDADA"} />
-          <DashboardItem color={"#DEE0EF"} />
-         
+          <div className='green'>
+            <div className='icon'>
+            <RiProjector2Line height={"70px"} />
+            </div>
+            <div>
+            <p>Total Revenues</p>
+            <h1 className='dash-head'>$6,392,989</h1>
+            </div>
+
+          </div>
+          <div className='yellow'>
+            <div className='icon'>
+            <TbTags/>
+            </div>
+            <div>
+            <p>Total Transactions</p>
+          <h1 className='dash-head'>2890</h1>
+            </div>
+
+          </div>
+          <div className='red'>
+            <div className='icon'>
+            <AiOutlineLike/>
+            </div>
+            <div>
+            <p>Total Likes</p>
+          <h1 className='dash-head'>10,000</h1>
+            </div>
+
+          </div>
+
+          <div className='purple'>
+            <div className='icon'>
+            <AiOutlineLike/>
+            </div>
+            <div>
+            <p>Total Likes</p>
+          <h1 className='dash-head'>10,000</h1>
+            </div>
+
+          </div>
+
         </div>
         <div className='chart'></div>
         <div className='twodiv'>

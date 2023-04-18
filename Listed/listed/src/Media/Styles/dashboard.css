@@ -97,11 +97,46 @@ h5{
     display: flex;
     justify-content: space-between;
 }
-.item{
+.icon{
+    margin-bottom: 50px;
+}
+.green{
     border-radius: 20px;
     height: 120px;
     width: 220px;
     background: #DDEFE0;
-    
-
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.yellow{
+    border-radius: 20px;
+    height: 120px;
+    width: 220px;
+    background: #F4ECDD;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.red{
+    border-radius: 20px;
+    height: 120px;
+    width: 220px;
+    background: #EFDADA;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.purple{
+    border-radius: 20px;
+    height: 120px;
+    width: 220px;
+    background: #DEE0EF;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
 }
