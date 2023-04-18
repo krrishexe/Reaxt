@@ -144,8 +144,9 @@ h5{
     align-items: center;
     justify-content: space-evenly;
 }
-.chart{
-    width: 40vw;
-    background: white;
-
+.chart1{
+    width: 1000px;
+    background: black;
+    border-radius: 20%;
+    margin: 4% 0;
 }

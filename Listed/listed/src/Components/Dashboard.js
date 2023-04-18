@@ -20,9 +20,10 @@ export const data = [
 ];
 
 export const options = {
-  title: "Company Performance",
+  title: "Activities",
   curveType: "function",
   legend: { position: "right" },
+  
 };
 
 
@@ -103,13 +104,15 @@ function Dashboard(props) {
           </div>
 
         </div>
-        <div className='chart'>
+        <div className='chart1'>
+          <h1>Hello</h1>
           <Chart
             chartType="LineChart"
-            width="130%"
+            width="100%"
             height="400px"
             data={data}
             options={options}
+            legendToggle
           />
         </div>
         <div className='twodiv'>
