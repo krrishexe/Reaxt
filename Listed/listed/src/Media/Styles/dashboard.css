@@ -69,5 +69,27 @@ h5{
 }
 .right-dash{
     /* background: green; */
+    padding:0 3%;
     flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.search{
+    background: white;
+}
+.top-3{
+    /* margin-left:50px; */
+    display: inline-flex;
+}
+.topdiv{
+    display: flex;
+    justify-content: space-between;
+}
+.dash-head{
+    color: black;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 700;
 }
