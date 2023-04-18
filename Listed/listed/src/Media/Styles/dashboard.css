@@ -97,6 +97,9 @@ h5{
     display: flex;
     justify-content: space-between;
 }
+.fontsize{
+    font-size: 25px;
+}
 .icon{
     margin-bottom: 50px;
 }

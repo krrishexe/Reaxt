@@ -5,6 +5,7 @@ import { BiBell } from 'react-icons/bi'
 import { RiProjector2Line } from 'react-icons/ri'
 import { TbTags } from 'react-icons/tb'
 import { AiOutlineLike } from 'react-icons/ai'
+import { FiUsers } from 'react-icons/fi'
 import "../Media/Styles/dashboard.css"
 import pic from "../Media/images/apple.png"
 
@@ -40,49 +41,49 @@ function Dashboard(props) {
 
             <input placeholder='Search...' type='search gap'></input>
             <BiBell className='gap' />
-            <img src={pic} className='gap'  alt="" style={{height:"24px",width:"24px",borderRadius:"25%"}} />
+            <img src={pic} className='gap' alt="" style={{ height: "24px", width: "24px", borderRadius: "25%" }} />
 
           </div>
         </div>
         <div className='div4'>
           <div className='green'>
             <div className='icon'>
-            <RiProjector2Line height={"70px"} />
+              <RiProjector2Line className='fontsize' />
             </div>
             <div>
-            <p>Total Revenues</p>
-            <h1 className='dash-head'>$6,392,989</h1>
+              <p>Total Revenues</p>
+              <h1 className='dash-head'>$6,392,989</h1>
             </div>
 
           </div>
           <div className='yellow'>
             <div className='icon'>
-            <TbTags/>
+              <TbTags className='fontsize' />
             </div>
             <div>
-            <p>Total Transactions</p>
-          <h1 className='dash-head'>2890</h1>
+              <p>Total Transactions</p>
+              <h1 className='dash-head'>2890</h1>
             </div>
 
           </div>
           <div className='red'>
             <div className='icon'>
-            <AiOutlineLike/>
+              <AiOutlineLike className='fontsize' />
             </div>
             <div>
-            <p>Total Likes</p>
-          <h1 className='dash-head'>10,000</h1>
+              <p>Total Likes</p>
+              <h1 className='dash-head'>10,000</h1>
             </div>
 
           </div>
 
           <div className='purple'>
             <div className='icon'>
-            <AiOutlineLike/>
+              <FiUsers className='fontsize' />
             </div>
             <div>
-            <p>Total Likes</p>
-          <h1 className='dash-head'>10,000</h1>
+              <p>Total Users</p>
+              <h1 className='dash-head'>999</h1>
             </div>
 
           </div>
