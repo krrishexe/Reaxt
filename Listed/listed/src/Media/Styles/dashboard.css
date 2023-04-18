@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+
+h4{
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 22px;
+}
+h5{
+    color: white;
+    font-family: 'Inter',sans-serif;
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+
+
+.outer{
+    padding:3%;
+    display: flex;
+    
+}
+.left-dash{
+    background-color: black;
+    flex: 0.2;
+    border-radius: 30px;
+    height: 87vh;
+    
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+
+}
+.list-item{
+    display: flex;
+    justify-content: space-around;
+}
+.bold{
+    font-weight: 600;
+}
+.dash-board{
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 30px;
+}
+.right-dash{
+    background: green;
+    flex: 0.8;
+}

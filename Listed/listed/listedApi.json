@@ -1,0 +1,18 @@
+{
+    "Total_Revenues": "$5,626,740",
+    "Total_trans": "1111",
+    "Total_likes": "1521",
+    "Total_users": "900",
+    "schedule": [
+        {
+            "name": "Meeting with suppliers from Kuta Bali",
+            "time": "14:00 - 15:00",
+            "location": "at sunset road, Kuta, Bali"
+        },
+        {
+            "name": "Check operation at Giga Factory 1",
+            "time": "18:00-20:00",
+            "location": "at Central Jakarta"
+        }
+    ]
+}
