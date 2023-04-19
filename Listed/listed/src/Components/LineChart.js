@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Chart from "chart.js/auto";
 import { BiChevronDown } from "react-icons/bi";
-import "./graph.css";
+import "../Media/Styles/dashboard.css";
 
 const MyLineChart = () => {
   const chartRef = useRef(null);
@@ -24,7 +24,7 @@ const MyLineChart = () => {
             data: [100, 200, 300, 200, 300],
             fill: false,
             borderColor: "#E9A0A0",
-            tension: 0.1,
+            tension: 0.5,
           },
         ],
       },

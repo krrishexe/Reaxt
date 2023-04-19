@@ -216,3 +216,28 @@ h5{
     flex-direction: column;
     align-items: flex-start;
 }
+.lineChart-heading{
+    margin: 0;
+    margin-top: -10px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.line{
+    border-radius: 20px;
+    padding: 30px;
+    background:white;
+    border-radius: 20px;
+    margin-top: 20px;
+    height: 300px;
+}
+.date{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    /* padding-bottom: 20px; */
+}

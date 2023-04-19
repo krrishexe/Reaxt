@@ -9,8 +9,8 @@ import { AiOutlineLike } from 'react-icons/ai'
 import { FiUsers } from 'react-icons/fi'
 import "../Media/Styles/dashboard.css"
 import pic from "../Media/images/apple.png"
-import PieChart from "../graph/PieChart";
-import LineChart from "../graph/LineChart";
+// import PieChart from "../graph/PieChart";
+import LineChart from "./LineChart";
 
 function Dashboard(props) {
 
@@ -90,9 +90,9 @@ function Dashboard(props) {
           </div>
 
         </div>
-        <div className='chart1'>
-          
-        </div>
+        
+          <LineChart />
+        
         <div className='twodiv'>
           <div className='left-chart'>
 
