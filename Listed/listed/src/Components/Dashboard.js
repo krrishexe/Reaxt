@@ -7,6 +7,7 @@ import { RiProjector2Line } from 'react-icons/ri'
 import { TbTags } from 'react-icons/tb'
 import { AiOutlineLike } from 'react-icons/ai'
 import { FiUsers } from 'react-icons/fi'
+import { BsCalendarCheck } from 'react-icons/bs'
 import "../Media/Styles/dashboard.css"
 import pic from "../Media/images/apple.png"
 import LineChart from "./LineChart";
@@ -14,7 +15,7 @@ import PieChart from './Piechart';
 
 function Dashboard(props) {
 
-  const { logout } = useAuth0();
+  const { logout, user } = useAuth0();
 
   return (
     <div className='outer'>
@@ -22,8 +23,8 @@ function Dashboard(props) {
         <div className='top-content'>
           <h1 className='dash-board'>Board.</h1>
           <div className="list-item"><FiPieChart style={{ color: 'white' }} /><h4 className='bold gap'>Dashboard</h4></div>
-          <div className="list-item"><TbTags /><h4 className='gap'>Transactions</h4></div>
-          <div className="list-item"><FiPieChart style={{ color: 'white' }} /><h4 className='gap'>Schedules</h4></div>
+          <div className="list-item"><TbTags style={{ color: 'white' }} /><h4 className='gap'>Transactions</h4></div>
+          <div className="list-item"><BsCalendarCheck style={{color:"white"}} /><h4 className='gap'>Schedules</h4></div>
           <div className="list-item"><HiOutlineUserCircle style={{ color: 'white' }} /><h4 className='gap'>Users</h4></div>
           <div className="list-item"><AiOutlineSetting style={{ color: 'white' }} /><h4 className='gap'>Settings</h4></div>
         </div>
@@ -38,12 +39,12 @@ function Dashboard(props) {
         <div className='topdiv'>
           <h1 className='dash-head'>Dashboard</h1>
             <button className='btn' style={{textAlign:"center"}} onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-              Log Out
+              Log Out 
             </button>
           <div className='top-3'>
             <input placeholder='Search...' className='search' type='search'></input>
-            <BiBell className='gap fontsize' />
-            <img src={pic} className='gap' alt="" style={{ height: "24px", width: "24px", borderRadius: "25%" }} />
+            <BiBell className='gap fontsize1' />
+            <img src={user.picture} className='gap' alt="" style={{ height: "34px", width: "34px", borderRadius: "50%",marginTop:"5px" }} />
           </div>
         </div>
         <div className='div4'>
