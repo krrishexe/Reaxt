@@ -99,7 +99,10 @@ h5{
     justify-content: space-between;
 }
 .fontsize{
-    font-size: 25px;
+    font-size: 26px;
+}
+.search{
+    background: white;
 }
 .icon{
     margin-bottom: 50px;

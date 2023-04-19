@@ -1,4 +1,5 @@
 import { FiPieChart } from 'react-icons/fi';
+import { useAuth0 } from "@auth0/auth0-react";
 import { HiOutlineUserCircle } from 'react-icons/hi'
 import { AiOutlineSetting } from 'react-icons/ai'
 import { BiBell } from 'react-icons/bi'
@@ -8,12 +9,12 @@ import { AiOutlineLike } from 'react-icons/ai'
 import { FiUsers } from 'react-icons/fi'
 import "../Media/Styles/dashboard.css"
 import pic from "../Media/images/apple.png"
-
-
-
+import PieChart from "../graph/PieChart";
+import LineChart from "../graph/LineChart";
 
 function Dashboard(props) {
 
+  const { logout } = useAuth0();
 
   return (
     <div className='outer'>
@@ -21,7 +22,7 @@ function Dashboard(props) {
         <div className='top-content'>
           <h1 className='dash-board'>Board.</h1>
           <div className="list-item"><FiPieChart style={{ color: 'white' }} /><h4 className='bold gap'>Dashboard</h4></div>
-          <div className="list-item"><FiPieChart style={{ color: 'white' }} /><h4 className='gap'>Transactions</h4></div>
+          <div className="list-item"><TbTags /><h4 className='gap'>Transactions</h4></div>
           <div className="list-item"><FiPieChart style={{ color: 'white' }} /><h4 className='gap'>Schedules</h4></div>
           <div className="list-item"><HiOutlineUserCircle style={{ color: 'white' }} /><h4 className='gap'>Users</h4></div>
           <div className="list-item"><AiOutlineSetting style={{ color: 'white' }} /><h4 className='gap'>Settings</h4></div>
@@ -36,12 +37,13 @@ function Dashboard(props) {
       <div className='right-dash'>
         <div className='topdiv'>
           <h1 className='dash-head'>Dashboard</h1>
+            <button className='btn' style={{textAlign:"center"}} onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+              Log Out
+            </button>
           <div className='top-3'>
-
-            <input placeholder='Search...' type='search gap'></input>
-            <BiBell className='gap' />
+            <input placeholder='Search...' className='search' type='search'></input>
+            <BiBell className='gap fontsize' />
             <img src={pic} className='gap' alt="" style={{ height: "24px", width: "24px", borderRadius: "25%" }} />
-
           </div>
         </div>
         <div className='div4'>
@@ -104,7 +106,7 @@ function Dashboard(props) {
             <div>
               <div className='top-4'>
                 <div>
-                <div className='border-style'></div>
+                  <div className='border-style'></div>
                 </div>
                 <div className='helo'>
                   <h3 className='smol-head'>Meeting with suppliers from Kuta Bali</h3>
@@ -115,7 +117,7 @@ function Dashboard(props) {
 
               <div className='top-4'>
                 <div>
-                <div className='border-style2'></div>
+                  <div className='border-style2'></div>
                 </div>
                 <div className='helo'>
                   <h3 className='smol-head'>Meeting with suppliers from Kuta Bali</h3>
@@ -123,7 +125,7 @@ function Dashboard(props) {
                   <p className='smol-para'>at Sunset Road,Kuta ,Bali</p>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>
