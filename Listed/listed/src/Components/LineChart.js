@@ -17,7 +17,7 @@ const MyLineChart = () => {
             data: [200, 400, 200, 400, 200],
             fill: false,
             borderColor: "#9BDD7C",
-            tension: 0.1,
+            tension: 0.5,
           },
           {
             label: "User", // Label for the second line

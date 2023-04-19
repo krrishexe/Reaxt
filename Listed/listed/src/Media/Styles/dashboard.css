@@ -219,7 +219,7 @@ h5{
 .lineChart-heading{
     margin: 0;
     margin-top: -10px;
-    font-family: 'Montserrat';
+    font-family: 'Inter',sans-serif;
     font-weight: 700;
     font-size: 18px;
     line-height: 22px;
@@ -234,7 +234,9 @@ h5{
     height: 300px;
 }
 .date{
-    font-family: 'Montserrat';
+    font-family: 'Inter',sans-serif;
+    float: left;
+    margin:10px 0;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
