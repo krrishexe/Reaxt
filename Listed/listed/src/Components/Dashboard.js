@@ -94,10 +94,9 @@ function Dashboard(props) {
           <LineChart />
         
         <div className='twodiv'>
-          <div className='left-chart'>
+          
             <PieChart />
 
-          </div>
           <div className='right-chart'>
             <div className='twodiv1'>
               <h1 className='dash-head smol'>Today's Schedule</h1>
