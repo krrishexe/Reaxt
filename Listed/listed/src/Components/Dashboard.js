@@ -9,7 +9,6 @@ import { AiOutlineLike } from 'react-icons/ai'
 import { FiUsers } from 'react-icons/fi'
 import { BsCalendarCheck } from 'react-icons/bs'
 import "../Media/Styles/dashboard.css"
-import pic from "../Media/images/apple.png"
 import LineChart from "./LineChart";
 import PieChart from './Piechart';
 

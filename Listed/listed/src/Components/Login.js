@@ -31,12 +31,12 @@ function Login() {
                 <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
                 Log Out
               </button> : 
-              <button className='gap glogo' onClick={() => loginWithRedirect()}> <img className='gap' src={glogo} alt="" height={"23px"} width={"23px"} /> <p className='para1'>Sign in with Google</p> </button>
+              <button className='glogo' onClick={() => loginWithRedirect()}> <img src={glogo} alt="" height={"23px"} width={"23px"} /> <p className='para1'>Sign in with Google</p> </button>
             }
                 
             
             <button className='glogo'>
-                 <img className='gap' src={alogo} alt="" height={"15px"} width={"13px"} /> <p className='para1'>Sign in with Apple</p> 
+                 <img  src={alogo} alt="" height={"15px"} width={"13px"} /> <p className='para1'>Sign in with Apple</p> 
             </button>
        </div>
         </div>
@@ -49,7 +49,7 @@ function Login() {
 
                 <a href='#'>Forgot Password?</a>
 
-                <button className='btn' type='submit'>Sign In</button>
+                <button onClick={() => loginWithRedirect()} className='btn' type='submit'>Sign In</button>
             </form>
         </div>
         <p className='account'>Don’t have an account? <a href="#">Register here</a></p>        
