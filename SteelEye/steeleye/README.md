@@ -1,4 +1,4 @@
-# 1-Explain what the simple List component does.
+# 1). Explain what the simple List component does.
 
 -The useState and useEffect hooks are used by the List component, a functional component, to control the component's state. UseEffect is used to reset the selected index to null whenever the items prop changes, while useState is used to define the selectedIndex state variable, which tracks the currently selected item in the list.
 
@@ -8,14 +8,14 @@ The text prop serves as the content of the li element that the SingleListItem co
 
 
 
-## 2) What problems / warnings are there with code?
+## 2). What problems / warnings are there with code?
 
-- 1. A TypeError will occur due to the incorrect declaration of the items prop in the WrappedListComponent component. PropTypes.shapeOf should be changed with PropTypes.arrayOf(PropTypes.shape("text: PropTypes.string.isRequired")) because it is an invalid function.
-- 2. The onClickHandler property in the WrappedSingleListItem component is not being called correctly. It should be passed as a callback function to be triggered when the list item is clicked.
-- 3. When trying to execute mapping operations on the WrappedListComponent component, the default value of null for the items prop may cause problems. To prevent these issues, it is preferable to assign it to an empty array ([]).
-- 4. The WrappedSingleListItem component incorrectly sets the isSelected property. As it stands, when selectedIndex is truthy, all list items will be green. This problem can be resolved by setting isSelected to isSelected = (selectedIndex === index).
-- 5. The key prop is not being set correctly in the map function of the WrappedListComponent component. This can be fixed by adding key={index} to the SingleListItem component.
-- 6. Initially the useState function was set incorrectly as [setSelectedIndex, selectedIndex] = useState(); but it should be set as const [selectedIndex , setSelectedIndex] = useState(null);
+- A TypeError will occur due to the incorrect declaration of the items prop in the WrappedListComponent component. PropTypes.shapeOf should be changed with PropTypes.arrayOf(PropTypes.shape("text: PropTypes.string.isRequired")) because it is an invalid function.
+- The onClickHandler property in the WrappedSingleListItem component is not being called correctly. It should be passed as a callback function to be triggered when the list item is clicked.
+- When trying to execute mapping operations on the WrappedListComponent component, the default value of null for the items prop may cause problems. To prevent these issues, it is preferable to assign it to an empty array ([]).
+- The WrappedSingleListItem component incorrectly sets the isSelected property. As it stands, when selectedIndex is truthy, all list items will be green. This problem can be resolved by setting isSelected to isSelected = (selectedIndex === index).
+- The key prop is not being set correctly in the map function of the WrappedListComponent component. This can be fixed by adding key={index} to the SingleListItem component.
+- Initially the useState function was set incorrectly as [setSelectedIndex, selectedIndex] = useState(); but it should be set as const [selectedIndex , setSelectedIndex] = useState(null);
 
 ## 3). Please fix, optimize, and/or modify the component as much as you think is necessary.
 
