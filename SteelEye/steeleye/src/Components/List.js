@@ -12,7 +12,7 @@ const WrappedSingleListItem = ({
   return (
     <li
       style={{ backgroundColor: (isSelected ? 'green' : 'red') }}
-      onClick={() => { onClickHandler(index) }}       // use of callback function
+      onClick={() => { onClickHandler(index) }}           // use of callback function
     >
       {text}
     </li>
@@ -22,7 +22,7 @@ const WrappedSingleListItem = ({
 
 WrappedSingleListItem.propTypes = {
   index: PropTypes.number,
-  isSelected: PropTypes.number,             // string to number
+  isSelected: PropTypes.number,             // default proptype was string then changed it to number
   onClickHandler: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
 };
@@ -50,7 +50,7 @@ const WrappedListComponent = ({
           onClickHandler={() => handleClick(index)}
           text={item.text}
           index={index}
-          isSelected={selectedIndex === index}
+          isSelected={selectedIndex === index}    // isSelected prop was given the value 'isSelected only' which is then set to 
           key={index}       // to provide a unique value to each list item
         />
       ))}
@@ -59,14 +59,14 @@ const WrappedListComponent = ({
 };
 
 WrappedListComponent.propTypes = {
-  items: PropTypes.arrayOf(
+  items: PropTypes.arrayOf(         // array to arrayOf and shapeOf to shape
     PropTypes.shape({
       text: PropTypes.string.isRequired,
     })).isRequired,
 };
 
 WrappedListComponent.defaultProps = {
-  items: [{
+  items: [{                         // default props were set to null , so we need to pass an array of objects with key value=> "text"
     text: "Hello"
   },
   {

@@ -4,7 +4,7 @@ import List from './Components/List';
 function App() {
   return (
     <div className="App">
-      <h1>hellllooooo</h1>
+      <h1>Welcome</h1>
       <List/>
     </div>
   );
