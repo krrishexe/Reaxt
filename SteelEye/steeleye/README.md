@@ -19,4 +19,4 @@ The text prop serves as the content of the li element that the SingleListItem co
 
 ## 3). Please fix, optimize, and/or modify the component as much as you think is necessary.
 
-- The optimised and updated code is cleaned 
+- The optimised and updated code is first cleaned and then pushed to the [github repository](https://github.com/krrishexe/Reaxt/tree/main/SteelEye/steeleye/src)
