@@ -15,20 +15,6 @@ const News = (props) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    // const updateFunction = async () => {
-    //     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=94565befd4ef427b92d8ced9a40eed8a&page=${page}&pageSize=${props.pageSize}`;
-    //     setLoading(true)
-    //     let data = await fetch(url);
-
-    //     let parsedData = await data.json()
-
-    //     setArticles(parsedData.articles)
-    //     setTotalResults(parsedData.totalResults)
-    //     setLoading(false)
-    // }
-
-
-
     // Har bar jab bhi component ya state ya props ke update hone par koi bhi cheez update krvani hoti hai to useEffect() use krte hai. 
 
 
