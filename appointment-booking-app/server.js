@@ -6,20 +6,22 @@ const connectDB = require('./config/db');
 
 const app = express();
 dotenv.config();        // --> it will grant access to the .env file to the server
+
+
 //mongodb connection
 connectDB();
+
+
 //middleware
 app.use(express.json());
 app.use(morgan('dev'));
 
+
 //routes
-app.get('/', (req,res)=>{
-    res.status(200).send({
-        message: "Welcome to the API"
-    })
-})
+app.use('/api/v1/user',require('./routes/userRoutes'))
 
 
+//port
 const port = process.env.PORT || 8080
 
 app.listen(port , ()=>{
