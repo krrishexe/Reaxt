@@ -2,10 +2,12 @@ const express = require('express');
 const colors = require('colors');
 const morgan = require('morgan')
 const dotenv = require('dotenv');
+const connectDB = require('./config/db');
 
 const app = express();
 dotenv.config();        // --> it will grant access to the .env file to the server
-
+//mongodb connection
+connectDB();
 //middleware
 app.use(express.json());
 app.use(morgan('dev'));
