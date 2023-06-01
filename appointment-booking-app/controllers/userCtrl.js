@@ -36,7 +36,30 @@ const registerController = async (req, res) => {
 
 
 
-const loginController = () => { }
+const loginController = async (req,res) => { 
+    try {
+        const user = await userModel.findOne({ email: req.body.email });
+        if (!user) {
+            return res
+              .status(200)
+              .send({ message: "User Not Exist", success: false });
+        }
+        const validPassword = await bcrypt.compare(req.body.password, user.password);
+        if (!validPassword) {
+            return res
+              .status(200)
+              .send({ message: "Invalid Password", success: false });
+        }
+        res.status(200).send({ message: "Login Sucessfully", success: true });
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: `Login Controller ${error.message}`,
+        });
+    }
+}
 
 module.exports = {
     loginController,
