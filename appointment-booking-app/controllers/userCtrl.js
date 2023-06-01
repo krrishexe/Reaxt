@@ -37,26 +37,26 @@ const registerController = async (req, res) => {
 
 
 
-const loginController = async (req,res) => { 
+const loginController = async (req, res) => {
     try {
         const user = await userModel.findOne({ email: req.body.email });
         if (!user) {
             return res
-              .status(200)
-              .send({ message: "User Not Exist", success: false });
+                .status(200)
+                .send({ message: "User Not Exist", success: false });
         }
         const validPassword = await bcrypt.compare(req.body.password, user.password);
         if (!validPassword) {
             return res
-              .status(200)
-              .send({ message: "Invalid Email or Password", success: false });
+                .status(200)
+                .send({ message: "Invalid Email or Password", success: false });
         }
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
             expiresIn: "1h",
         });
 
-        res.status(200).send({ message: "Login Sucessfully", success: true ,token});
-        
+        res.status(200).send({ message: "Login Sucessfully", success: true, token });
+
     } catch (error) {
         console.log(error);
         res.status(500).send({
@@ -66,7 +66,37 @@ const loginController = async (req,res) => {
     }
 }
 
+const authController = async (req, res) => {
+    try {
+        const user = await userModel.findOne({ _id: req.body.userID });
+        if (!user) {
+            return res
+                .status(200)
+                .send({ message: "User Not Found", success: false });
+        }
+        else{
+            res.status(200).send({
+                success:true,
+                data:{
+                    name:user.name,
+                    email:user.email
+                },
+            })
+        }
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            success: false,
+            message: `Auth Controller ${error.message}`,
+            error
+        });
+    }
+}
+
+
 module.exports = {
     loginController,
-    registerController
+    registerController,
+    authController
 }
