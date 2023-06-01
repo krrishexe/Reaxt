@@ -8,7 +8,7 @@ const router = express.Router();
 
 //routes 
 //Login || POST
-router.post('/', loginController
+router.post('/login', loginController
 );
 
 // Register || post

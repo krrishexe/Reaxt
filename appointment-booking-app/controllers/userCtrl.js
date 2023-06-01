@@ -1,5 +1,6 @@
 const userModel = require('../model/userModels')
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 
 //register callback function
@@ -48,9 +49,13 @@ const loginController = async (req,res) => {
         if (!validPassword) {
             return res
               .status(200)
-              .send({ message: "Invalid Password", success: false });
+              .send({ message: "Invalid Email or Password", success: false });
         }
-        res.status(200).send({ message: "Login Sucessfully", success: true });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+            expiresIn: "1h",
+        });
+
+        res.status(200).send({ message: "Login Sucessfully", success: true ,token});
         
     } catch (error) {
         console.log(error);
