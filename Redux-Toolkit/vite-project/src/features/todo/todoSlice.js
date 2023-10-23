@@ -21,8 +21,8 @@ export const todoSlice = createSlice({
             state.todos.push(todo)
         },
         updateTodo :(state,action) =>{
-            state.todos = state.todos.forEach(
-                (todo)=>(todo.id === action.payload)
+            state.todos = state.todos.map(
+                (todo)=>(todo.id === action.payload ? todo : state.todos)
             )
         },
         removeTodo: (state,action) =>{
