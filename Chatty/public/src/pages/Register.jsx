@@ -1,44 +1,72 @@
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.svg'
-import { useState } from 'react'
-import {toast,ToastContainer} from 'react-toastify'
+import { useEffect, useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
-import {useFormik} from 'formik'
+import { useFormik } from 'formik'
+import { registerSchema } from '../models';
+import axios from 'axios'
+import { registerRoute } from '../utils/APIRoutes';
 
 function Register() {
 
   const initialValues = {
-    username:'',
-    email:'',
-    password:'',
-    confirmPassword:'',
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   }
 
-  const {values ,errors,touched , handleChange , handleSubmit ,handleBlur} = useFormik({
-    initialValues:initialValues,
-    // validationSchema:"",
-    onSubmit:(values,action)=>{
+  const {values, errors, touched, handleChange, handleSubmit, handleBlur} = useFormik({
+    initialValues: initialValues,
+    validationSchema: registerSchema,
+    onSubmit: (values, action) => {
       console.log(values)
       action.resetForm()
     }
 
   })
-  
 
-  console.log(values)
-  // const handleValidation = () => {
-  //   const {password,confirmPassword,email,username} = values;
+  const handleOnClick = async () => {
+    errors.username && touched.username ? (toast.error(errors.username, {
+      position: 'bottom-right',
+      autoClose: 3000,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'dark'
+    })) : null;
 
-  //   if(password !== confirmPassword){
-  //     toast.error('Password and confirm password do not match',{
-  //       position:'bottom-right',
-  //       autoClose:8000,
-  //       pauseOnHover:true,
-  //       draggable:true,
-  //       theme:'dark'
-  //     })
-  //   }    
-  // }
+    errors.email && touched.email ? (toast.error(errors.email, {
+      position: 'bottom-right',
+      autoClose: 3000,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'dark'
+    })) : null;
+
+    errors.password && touched.password ? (toast.error(errors.password, {
+      position: 'bottom-right',
+      autoClose: 3000,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'dark'
+    })) : null;
+
+    errors.confirmPassword && touched.confirmPassword ? (toast.error(errors.confirmPassword, {
+      position: 'bottom-right',
+      autoClose: 3000,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'dark'
+    })) : null;
+
+    const {username, password ,email} = initialValues;
+    const {data} = await axios.post(registerRoute,{
+      username,
+      email,
+      password
+    })
+  }
 
   return (
     <>
@@ -54,11 +82,11 @@ function Register() {
 
           <input className='bg-transparent p-2 border-2 rounded-md border-blue-400 text-white w-full text-base focus:border-purple-400 focus:outline-none' name='email' type="email" placeholder='Email' value={values.email} onBlur={handleBlur} onChange={handleChange} />
 
-          <input  className='bg-transparent p-2 border-2 rounded-md border-blue-400 text-white w-full text-base focus:border-purple-400 focus:outline-none' name='password' type="password" placeholder='Enter password' onBlur={handleBlur} value={values.password} onChange={handleChange} />
+          <input className='bg-transparent p-2 border-2 rounded-md border-blue-400 text-white w-full text-base focus:border-purple-400 focus:outline-none' name='password' type="password" placeholder='Enter password' onBlur={handleBlur} value={values.password} onChange={handleChange} />
 
           <input className='bg-transparent p-2 border-2 rounded-md border-blue-400 text-white w-full text-base focus:border-purple-400 focus:outline-none' name='confirmPassword' type="password" placeholder='Confirm password' value={values.confirmPassword} onBlur={handleBlur} onChange={handleChange} />
 
-          <button className='text-white bg-violet-500 px-8 py-4 border-none font-bold text-lg cursor-pointer rounded-sm uppercase hover:bg-violet-400 transition-colors duration-200' type='submit'>Create User</button>
+          <button className='text-white bg-violet-500 px-8 py-4 border-none font-bold text-lg cursor-pointer rounded-sm uppercase hover:bg-violet-400 transition-colors duration-200' type='submit' onClick={handleOnClick}>Create User</button>
 
           <span className='text-white uppercase'>Already have an account ? <Link className='text-violet-700 no-underline font-bold' to="/login">Login</Link> </span>
         </form>
