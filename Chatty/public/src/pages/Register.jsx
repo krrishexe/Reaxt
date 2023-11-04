@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '../assets/logo.svg'
 import { useEffect, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
@@ -9,6 +9,8 @@ import axios from 'axios'
 import { registerRoute } from '../utils/APIRoutes';
 
 function Register() {
+
+  const navigate = useNavigate()
 
   const initialValues = {
     username: '',
@@ -27,7 +29,9 @@ function Register() {
 
   })
 
-  const handleOnClick = async () => {
+  const handleOnClick = async (e) => {
+    // e.preventDefault()
+
     errors.username && touched.username ? (toast.error(errors.username, {
       position: 'bottom-right',
       autoClose: 3000,
@@ -60,12 +64,38 @@ function Register() {
       theme: 'dark'
     })) : null;
 
-    const {username, password ,email} = initialValues;
+    const {username, password ,email} = values;
     const {data} = await axios.post(registerRoute,{
       username,
       email,
       password
     })
+
+    console.log(data)
+
+    if(data.status === false){
+      console.log("false")
+      toast.error(data.msg,{
+        position: 'bottom-right',
+        autoClose: 3000,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'dark'
+      })
+    }
+    if(data.status === true){
+      console.log("true")
+      localStorage.setItem('chat-app-user',JSON.stringify(data.user))
+      toast.success(data.msg,{
+        position: 'bottom-right',
+        autoClose: 3000,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'dark'
+      })
+      console.log(data)
+      navigate('/')
+    }
   }
 
   return (
