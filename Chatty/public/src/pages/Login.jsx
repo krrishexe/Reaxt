@@ -27,6 +27,12 @@ function Login() {
 
   })
 
+  useEffect(()=>{
+    if(localStorage.getItem('chat-app-user')){
+      navigate('/')
+    }
+  })
+
   const handleOnClick = async (e) => {
     // e.preventDefault()
 
