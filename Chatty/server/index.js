@@ -12,6 +12,15 @@ app.use(express.json())
 app.use("/api/auth",userRoutes)     // auth vale sare routes userRoutes me hai
 
 connectDB()
+.then((res)=>{
+    app.listen(process.env.PORT, () => {
+    console.log(`Server live on port ${process.env.PORT}`)
+    });
+})
+.catch((err) =>{
+    console.log(err)
+})
+
 
 // ;(async ()=>{
 //     try {
