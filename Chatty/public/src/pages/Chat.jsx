@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { allUsersRoute } from '../utils/APIRoutes'
 import Contacts from '../components/Contacts'
 import axios from 'axios'
+import Welcome from '../components/Welcome'
 
 function Chat() {
   const navigate = useNavigate()
   const [contacts, setContacts] = useState([])
   const [currentUser, setCurrentUser] = useState(undefined)
+  const [currentChat, setCurrentChat] = useState(undefined)
 
   useEffect(() => {
     if (!localStorage.getItem('chat-app-user')) {
@@ -37,11 +39,17 @@ function Chat() {
     }
     currentUserData()
   }, [currentUser])
+
+  const handleChatChange = (chat) => {
+    setCurrentChat(chat)
+  }
+
   return (
     <>
     <div style={{ backgroundColor: '#131324' }} className='h-screen w-screen flex justify-center items-center flex-col gap-4 '>
       <div style={{ backgroundColor: '#00000076', height: '85vh', width: '85vw', display: 'grid', gridTemplateColumns: '25% 75%' }} >
-        <Contacts contacts={contacts} currentUser={currentUser} />
+        <Contacts contacts={contacts} currentUser={currentUser} handleChatChange={handleChatChange}/>
+        <Welcome currentUser={currentUser}  />
       </div>
     </div>
     </>

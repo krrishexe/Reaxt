@@ -1,0 +1,15 @@
+.scrollbar{
+    &::-webkit-scrollbar {
+        /* width: 0.2rem; */
+            background-color: #ffffff39;
+            width: 0.1rem;
+            border-radius: 1rem;
+
+      }
+}
+
+@media screen and (min-width: 720px) and (max-width:1080px){
+    .currentuser{
+        gap:0.5rem
+    }    
+}

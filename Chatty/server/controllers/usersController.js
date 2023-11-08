@@ -62,6 +62,7 @@ module.exports.SetAvatar = async (req, res, next) => {
 
 module.exports.getAllUsers = async (req, res, next) => {
     try {
+        // $ne means all users except the current one
         const users = await User.find({ _id: { $ne: req.params.id } }).select([
             "email",
             "_id",

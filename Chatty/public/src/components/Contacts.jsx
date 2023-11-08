@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Logo from '../assets/logo.svg'
-function Contacts({ contacts, currentUser }) {
+import './Contacts.css'
+
+
+
+function Contacts({ contacts, currentUser, handleChatChange }) {
 
   const [currentUserName, setCurrentUserName] = useState(undefined)
   const [currentUserImage, setCurrentUserImage] = useState(undefined)
@@ -14,7 +18,8 @@ function Contacts({ contacts, currentUser }) {
   }, [currentUser])
 
   const changeCurrentChat = (index, contact) => {
-
+    setCurrentSelected(index)
+    handleChatChange(contact)
   }
 
   return (
@@ -27,12 +32,13 @@ function Contacts({ contacts, currentUser }) {
               <h3 className='text-white uppercase'>Chatty</h3>
             </div>
 
-            <div className="flex flex-col items-center overflow-auto gap-3">
+            <div className="scrollbar flex flex-col items-center overflow-auto gap-3">
               {
                 // eslint-disable-next-line react/prop-types
                 contacts.map((contact, index) => {
                   return (
-                    <div key={index} style={{minHeight:'5rem',width:'90%'}} className={`bg-slate-400/40 cursor-pointer rounded-md p-2 gap-4 items-center flex transition-all  ${index === currentSelected ? 'bg-violet-400/90' : ''}`}>
+
+                    <div key={index} style={{ minHeight: '5rem', width: '90%' }} onClick={()=>{changeCurrentChat(index,contact)}} className={`bg-slate-400/40 cursor-pointer rounded-md p-2 gap-4 items-center flex transition-all  ${index === currentSelected ? 'bg-violet-400/90' : ''}`}>
                       <div className="avatar">
                         <img className='h-12' src={`data:image/svg+xml;base64,${contact.avatarImage}`} alt="" />
                       </div>
@@ -46,7 +52,7 @@ function Contacts({ contacts, currentUser }) {
                 })
               }
             </div>
-            <div style={{backgroundColor:'#0d0d30'}} className="flex justify-center items-center gap-8 ">
+            <div style={{ backgroundColor: '#0d0d30' }} className=" currentuser flex justify-center items-center gap-8 ">
               <div className="avatar">
                 <img className='h-16' src={`data:image/svg+xml;base64,${currentUserImage}`} alt="" />
               </div>
