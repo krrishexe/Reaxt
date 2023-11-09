@@ -4,6 +4,7 @@ import { allUsersRoute } from '../utils/APIRoutes'
 import Contacts from '../components/Contacts'
 import axios from 'axios'
 import Welcome from '../components/Welcome'
+import ChatContainer from '../components/ChatContainer'
 
 function Chat() {
   const navigate = useNavigate()
@@ -30,7 +31,6 @@ function Chat() {
         if (currentUser.isAvatarImageSet) {
           const data = await axios.get(`${allUsersRoute}/${currentUser._id}`)
           setContacts(data.data)
-          console.log(contacts)
         }
         else {
           navigate('/setAvatar')
@@ -46,12 +46,18 @@ function Chat() {
 
   return (
     <>
-    <div style={{ backgroundColor: '#131324' }} className='h-screen w-screen flex justify-center items-center flex-col gap-4 '>
-      <div style={{ backgroundColor: '#00000076', height: '85vh', width: '85vw', display: 'grid', gridTemplateColumns: '25% 75%' }} >
-        <Contacts contacts={contacts} currentUser={currentUser} handleChatChange={handleChatChange}/>
-        <Welcome currentUser={currentUser}  />
+      <div style={{ backgroundColor: '#131324' }} className='h-screen w-screen flex justify-center items-center flex-col gap-4 '>
+        <div style={{ backgroundColor: '#00000076', height: '85vh', width: '85vw', display: 'grid', gridTemplateColumns: '25% 75%' }} >
+          <Contacts contacts={contacts} currentUser={currentUser} handleChatChange={handleChatChange} />
+          {
+            currentChat === undefined ? (
+              <Welcome currentUser={currentUser} />
+            ) : (
+              <ChatContainer currentChat={currentChat} />
+            )
+          }
+        </div>
       </div>
-    </div>
     </>
   )
 }
