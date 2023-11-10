@@ -3,13 +3,16 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const app = express()
 const userRoutes = require('./routes/userRoutes')
+const messageRoutes = require('./routes/messagesRoute')
 const { connectDB } = require('./db')
 require('dotenv').config()
 
 app.use(cors())
 app.use(express.json())
 
-app.use("/api/auth",userRoutes)     // auth vale sare routes userRoutes me hai
+app.use("/api/auth",userRoutes)
+app.use("/api/messages",messageRoutes)
+     // auth vale sare routes userRoutes me hai
 
 connectDB()
 .then((res)=>{
