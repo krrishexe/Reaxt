@@ -21,7 +21,7 @@ function Chat() {
         setCurrentUser(await JSON.parse(localStorage.getItem('chat-app-user')))
       }
       fetchCurrentUser()
-      console.log("current user called", currentUser)
+      // console.log("current user called", currentUser)
     }
   }, [])
 
@@ -53,7 +53,7 @@ function Chat() {
             currentChat === undefined ? (
               <Welcome currentUser={currentUser} />
             ) : (
-              <ChatContainer currentChat={currentChat} />
+              <ChatContainer currentChat={currentChat} currentUser={currentUser} />
             )
           }
         </div>

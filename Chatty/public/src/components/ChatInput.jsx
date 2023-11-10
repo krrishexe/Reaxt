@@ -19,7 +19,6 @@ function ChatInput({ handleSendMsg }) {
         setMsg(message);
     }
     const sendChat = (event) =>{
-        alert(msg)
         event.preventDefault();
         if(msg.length>0){
             handleSendMsg(msg)
