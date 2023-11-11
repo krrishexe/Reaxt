@@ -5,48 +5,47 @@ const app = express()
 const userRoutes = require('./routes/userRoutes')
 const messageRoutes = require('./routes/messagesRoute')
 const { connectDB } = require('./db')
+const socket = require('socket.io')
 require('dotenv').config()
 
 app.use(cors())
 app.use(express.json())
 
-app.use("/api/auth",userRoutes)
+app.use("/api/auth", userRoutes)
 // auth vale sare routes userRoutes me hai
-app.use("/api/messages",messageRoutes)
+app.use("/api/messages", messageRoutes)
+
+const server = app.listen(process.env.PORT, () => {
+    console.log(`Server live on port ${process.env.PORT}`)
+})
 
 connectDB()
-.then((res)=>{
-    app.listen(process.env.PORT, () => {
-    console.log(`Server live on port ${process.env.PORT}`)
+    .then(() => {
+        server
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+
+const io = socket(server, {
+    cors: {
+        origin: "http://localhost:5173",
+        credentials: true,
+    },
+});
+
+global.onlineUsers = new Map();
+io.on("connection", (socket) => {
+    global.chatSocket = socket;
+    socket.on("add-user", (userId) => {
+        onlineUsers.set(userId, socket.id);
     });
-})
-.catch((err) =>{
-    console.log(err)
-})
 
-
-// ;(async ()=>{
-//     try {
-//         const conn = await mongoose.connect(process.env.MONGO_URL)
-//         app.on('error',(err)=>{
-//             console.log("Error connecting to Mongoose :" , err)
-//         })
-        
-//         app.listen(process.env.PORT, () => {
-//             console.log(`Server live on port ${process.env.PORT}`)
-//         })
-//         console.log(`MongoDB Connected`);
-//     } catch (error) {
-//         console.log("Error: " + error)
-//         throw error
-//     }
-// })() 
-//IIFE
-// mongoose.connect(process.env.MONGO_URL).then(() => {
-//     console.log("DB connection established")
-// }).catch(err => console.log(err));
-
-
-
-
+    socket.on("send-msg", (data) => {
+        const sendUserSocket = onlineUsers.get(data.to);
+        if (sendUserSocket) {
+            socket.to(sendUserSocket).emit("msg-recieve", data.msg);
+        }
+    });
+});
 // FLOW --> INDEX --> ROUTES --> CONTROLLERS --> MODELS.
