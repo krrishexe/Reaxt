@@ -11,14 +11,12 @@ function ChatContainer({ currentChat, currentUser }) {
     const [messages, setMessages] = useState([])
 
     const handleSendMsg = async (msg) => {
-        console.log(currentUser)
-        console.log(currentChat)
         const data = await axios.post(sendMessageRoute, {
             message: msg,
             from: currentUser._id,
             to: currentChat._id,
         })
-        console.log(data)
+        console.log(data.data)
     }
     useEffect(() => {
         const handleFunction = async () => {
@@ -31,7 +29,7 @@ function ChatContainer({ currentChat, currentUser }) {
         handleFunction()
     }, [currentChat])
     return (
-        <div style={{display:'grid',gridTemplateRows:'10% 80% 10%',gap:'0.1rem',overflow:'hidden'}} className='py-4'>
+        <div style={{ display: 'grid', gridTemplateRows: '10% 80% 10%', gap: '0.1rem', overflow: 'hidden' }} className='py-4'>
             <div className="flex justify-between items-center px-8 ">
                 <div className="flex items-center gap-4">
                     <div className="avatar">
@@ -45,12 +43,14 @@ function ChatContainer({ currentChat, currentUser }) {
             </div>
             <div className='pt-4 pb-4 pl-8 pr-8 flex flex-col gap-4 overflow-auto'>
                 {
-                    messages.map((message,index) => {
+                    messages.map((message, index) => {
                         return (
                             <div key={index}>
                                 <div className={`flex items-center ${message.fromSelf ? 'justify-end' : 'justify-start  '}`}>
-                                    <div style={{maxWidth:'40%',overflowWrap:'break-word',
-                                padding:'1rem',fontSize:'1.1rem',borderRadius:'1rem',color:'#d1d1d1',backgroundColor:'#4f04ff21'}} className="content">
+                                    <div style={{
+                                        maxWidth: '40%', overflowWrap: 'break-word',
+                                        padding: '1rem', fontSize: '1.1rem', borderRadius: '1rem', color: '#d1d1d1', backgroundColor: '#4f04ff21'
+                                    }} className="content">
                                         <p>
                                             {
                                                 message.message
