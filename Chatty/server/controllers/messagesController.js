@@ -5,13 +5,15 @@ module.exports.addMessage = async (req, res, next) => {
 
     try {
         const {from, to, message } = req.body;
-        console.log("from : " + from, to, message)
+        if (!from || !to || !message) {
+            return res.status(400).json({ msg: 'Missing required fields' });
+        }
         const data = await MessageModel.create({
             message: {
-                text: message
+                text: message,
+                users: [from, to],
+                sender: from,
             },
-            sender: from,
-            users: [from, to],
         })
         if (data) {
             // console.log(data)
@@ -21,6 +23,7 @@ module.exports.addMessage = async (req, res, next) => {
 
     } catch (error) {
         console.log(error)
+        return res.status(500).json({ msg: 'Internal Server Error' });
         next(error)
     }
 

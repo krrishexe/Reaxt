@@ -11,8 +11,8 @@ app.use(cors())
 app.use(express.json())
 
 app.use("/api/auth",userRoutes)
+// auth vale sare routes userRoutes me hai
 app.use("/api/messages",messageRoutes)
-     // auth vale sare routes userRoutes me hai
 
 connectDB()
 .then((res)=>{

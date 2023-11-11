@@ -13,11 +13,12 @@ function ChatContainer({ currentChat, currentUser }) {
     const handleSendMsg = async (msg) => {
         console.log(currentUser)
         console.log(currentChat)
-        await axios.post(sendMessageRoute, {
+        const data = await axios.post(sendMessageRoute, {
             message: msg,
             from: currentUser._id,
             to: currentChat._id,
         })
+        console.log(data)
     }
     useEffect(() => {
         const handleFunction = async () => {
