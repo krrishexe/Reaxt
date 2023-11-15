@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import Stories from './components/Stories'
 
 function App() {
 
   return (
     <>
-      <h1>hello</h1>
+    <Stories />
     </>
   )
 }
