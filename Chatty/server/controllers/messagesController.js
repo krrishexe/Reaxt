@@ -33,14 +33,13 @@ module.exports.getAllMessage = async (req, res, next) => {
     try {
         console.log(req.body)
         const { from, to } = req.body;
-        const allMessages = await MessageModel.find(
-            //     {
-            //     users:{
-
-            //             $all:[from,to]
-
-            //     }
+        const allMessages = await MessageModel.find({
+            // message: {
+            //     users: [
+            //         $all: [from, to]
+            //     ]
             // }
+        }
         ).exec()
         let filteredMessages = []
         for (let msg of allMessages) {
@@ -57,17 +56,17 @@ module.exports.getAllMessage = async (req, res, next) => {
                 }
             }
         }
-            // console.log(filteredMessages)
+        // console.log(filteredMessages)
 
-            const projectedMessages = filteredMessages.map((msg) => {
-                return {
-                    fromSelf: msg.message.sender.toString() === from,
-                    message: msg.message.text,
-                }
-            })
-            console.log(projectedMessages)
-            res.json(projectedMessages)
-        
+        const projectedMessages = filteredMessages.map((msg) => {
+            return {
+                fromSelf: msg.message.sender.toString() === from,
+                message: msg.message.text,
+            }
+        })
+        console.log(projectedMessages)
+        res.json(projectedMessages)
+
     } catch (error) {
         console.log(error)
         next(error)
