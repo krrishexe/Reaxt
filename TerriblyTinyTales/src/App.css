@@ -41,18 +41,16 @@
   }
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 864px){
-  
+@media only screen and (max-width: 1024px) and (min-width: 768px){
   .anujImg {
     height: 12rem;
   }
   .content{
     padding-left: 6rem;
   }
-
 }
 
-@media only screen and (max-width: 864px) and (min-width: 640px){
+@media only screen and (max-width: 768px) and (min-width: 640px){
   
   .anujImg {
     height: 10rem;

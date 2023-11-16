@@ -11,12 +11,14 @@ function Card(props) {
            {
             cards.map((card,index) =>{
                 return(
-                    <div key={index} className='border border-slate-200 p-6'>
+                    <div key={index} className='border cursor-pointer border-slate-200 p-6'>
                 <div className='flex items-center justify-between'>
                     <h2 className='text-lg font-bold '>{card.title}</h2>
                     <AiOutlineLike className='text-white bg-yellow-500 rounded-full h-5 w-5' />
                 </div>
-                <p className='text-slate-600 my-8'>{card.description}</p>
+                <p className='text-slate-600 my-8'>{
+                (card.description).length > 200 ? ((card.description).slice(0,200) + '...') : (card.description)
+                }</p>
 
                 <div className='flex justify-between'>
                     <div>
