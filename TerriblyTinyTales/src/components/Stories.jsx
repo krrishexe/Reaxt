@@ -8,6 +8,7 @@ import { FaEye } from "react-icons/fa";
 import { IoHeartDislikeOutline } from "react-icons/io5";
 
 import '../App.css'
+import Card from './Card';
 
 function Stories() {
   return (
@@ -50,11 +51,19 @@ function Stories() {
               <span>57.8k</span>
               <IoHeartDislikeOutline className='text-white bg-pink-600 rounded-full h-5 w-5' />
               <span>26.0k</span>
-
             </div>
           </div>
         </section>
+
       </div>
+        <section id='bottom'>
+        <button className='text-blue-400 bg-white rounded-none border border-b-0  border-slate-200 '>
+                134 Posts
+            </button>
+        <Card />
+        <Card />
+        <Card />
+        </section>  
 
 
 
