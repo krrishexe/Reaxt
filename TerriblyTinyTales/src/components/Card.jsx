@@ -17,7 +17,7 @@ function Card() {
                         <span className='text-cyan-300 '>musing </span><p className='inline font-bold text-slate-600'>by username</p>
                     </div>
                     <div>
-                        <p className='flex-wrap'>Date . 2 mins read .102 views</p>
+                        <p className='flex-wrap text-gray-300'>Date . 2 mins read .102 views</p>
                     </div>
                 </div>
 

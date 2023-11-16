@@ -6,7 +6,6 @@
   top: -50px;
   left: 25%; /* Center the image horizontally */
   transform: translateX(-50%); 
-  
 }
 
 .content {
@@ -47,18 +46,35 @@
   .anujImg {
     height: 12rem;
   }
-
-}
-
-@media only screen and (max-width: 864px) and (min-width: 600px){
-  
-  .anujImg {
-    height: 10rem;
+  .content{
+    padding-left: 6rem;
   }
 
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 864px) and (min-width: 640px){
+  
+  .anujImg {
+    height: 10rem;
+  }
+  .content{
+    padding-left: 6rem;
+  }
+
+}
+
+@media only screen and (max-width: 640px) and (min-width: 426px){
+  
+  .anujImg {
+    height: 9rem;
+  }
+  .content{
+    padding-left: 6rem;
+  }
+
+}
+
+@media only screen and (max-width: 426px){
   
   .anujImg {
     height: 7rem;

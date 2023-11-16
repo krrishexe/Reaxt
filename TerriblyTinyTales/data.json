@@ -1,0 +1,38 @@
+{
+    "id":1,
+    "username":"Anuj Gosalia",
+    "followers":6482,
+    "following":245,
+    "userIgLink":"http://www.instagram.com/anujgosalia",
+    "stars":123,
+    "likes":12,
+    "views":57800,
+    "hearts":26000,
+    "posts":134,
+    "posts_data" : [
+        {
+            "title":"A Changing World Order",
+            "description":"The world is changing at a feverish pace. Friends colleagues and everyone engaged in knowledge work are beginning to sense this , including the various world leaders like the Prime minister and President of Japan and Russia.",
+            "ig_username":"anujgosalia",
+            "date":"August 2",
+            "reading_time":"2 mins read",
+            "views":"102"
+        },
+        {
+            "title":"Indian v/s Australia",
+            "description":"Think about it - this cricket series was akin to therapy \n Laying our childhood trauma up top , working with it slowly and surely over two months has been very hectic to all the inddian fans. but this time in 2023 we will lift the world cup for sure.",
+            "ig_username":"anujgosalia",
+            "date":"Januray 21",
+            "reading_time":"1 min read",
+            "views":"156"
+        },
+        {
+            "title":"Write To Build",
+            "description":"Writing is the first step to create : \n -stories \n -products \n -companies",
+            "ig_username":"anujgosalia",
+            "date":"November 18",
+            "reading_time":"1 min read",
+            "views":"228"
+        }
+    ]
+}
