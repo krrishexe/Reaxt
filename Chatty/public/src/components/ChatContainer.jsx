@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Logout from './Logout'
 import ChatInput from './ChatInput'
 import Messages from './Messages'
@@ -6,9 +6,16 @@ import axios from 'axios'
 import { getAllMessagesRoute, sendMessageRoute } from '../utils/APIRoutes'
 
 
-function ChatContainer({ currentChat, currentUser }) {
+function ChatContainer({ currentChat, currentUser,socket }) {
 
     const [messages, setMessages] = useState([])
+    const [arrivalMessage, setArrivalMessage] = useState(null)
+
+    const scrollRef = useRef()
+
+    useEffect(()=>{
+        scrollRef.current?.scrollIntoView({behaviour:'smooth'})   
+    },[messages])
 
     const handleSendMsg = async (msg) => {
         const data = await axios.post(sendMessageRoute, {
@@ -16,18 +23,43 @@ function ChatContainer({ currentChat, currentUser }) {
             from: currentUser._id,
             to: currentChat._id,
         })
-        console.log(data.data)
+        socket.current.emit('send-msg',{
+            message: msg,
+            from: currentUser._id,
+            to: currentChat._id,
+        })
+        
+        const msgs = [...messages]
+        msgs.push({fromSelf:true,message: msg})
+        setMessages(msgs)
     }
-    useEffect(() => {
-        const handleFunction = async () => {
-            const response = await axios.post(getAllMessagesRoute, {
-                from: currentUser._id,
-                to: currentChat._id
+
+    useEffect(()=>{
+        if(socket.current){
+            socket.current.on('msg-recieve',(msg)=>{
+                setArrivalMessage({fromSelf:false,message:msg})
             })
-            setMessages(response.data)
         }
-        handleFunction()
+    },[])
+
+    useEffect(()=>{
+        arrivalMessage && setMessages((prev)=>[...prev,arrivalMessage])
+    },[arrivalMessage])
+
+
+    useEffect(() => {
+        if(currentChat){
+            const handleFunction = async () => {
+                const response = await axios.post(getAllMessagesRoute, {
+                    from: currentUser._id,
+                    to: currentChat._id
+                })
+                setMessages(response.data)
+            }
+            handleFunction()
+        }
     }, [currentChat])
+
     return (
         <div style={{ display: 'grid', gridTemplateRows: '10% 80% 10%', gap: '0.1rem', overflow: 'hidden' }} className='py-4'>
             <div className="flex justify-between items-center px-8 ">
@@ -45,7 +77,7 @@ function ChatContainer({ currentChat, currentUser }) {
                 {
                     messages.map((message, index) => {
                         return (
-                            <div key={index}>
+                            <div ref={scrollRef} key={index}>
                                 <div className={`flex items-center ${message.fromSelf ? 'justify-end' : 'justify-start  '}`}>
                                     <div style={{
                                         maxWidth: '40%', overflowWrap: 'break-word',
