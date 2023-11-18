@@ -17,13 +17,13 @@ function Stories() {
       {/* Navbar */}
       <Navbar />
       {/* hero bg */}
-      <div className='border-b-2 border-gray-700'>
+      <div className='shadow-lg shadow-gray-500 border-b-2 border-gray-700'>
         <img className='h-60 md:h-72 object-cover w-screen' src={hero2} alt="" />
       </div>
       <div className='relative flex justify-center items-center flex-col '>
-        <img src="https://media.licdn.com/dms/image/D4D03AQEXdD5HHqzN3g/profile-displayphoto-shrink_400_400/0/1667373388482?e=1705536000&v=beta&t=-2HnbTEGp5ORczULT2PwThEqgzYprhWRXt8isdq0NHA" alt="" className='rounded-full border-2 border-gray-700 anujImg' />
+        <img src="https://media.licdn.com/dms/image/D4D03AQEXdD5HHqzN3g/profile-displayphoto-shrink_400_400/0/1667373388482?e=1705536000&v=beta&t=-2HnbTEGp5ORczULT2PwThEqgzYprhWRXt8isdq0NHA" alt="" className='shadow-lg shadow-gray-500 rounded-full border-2 border-gray-700 anujImg' />
         <div className='flex content items-center'>
-          <p style={{ fontFamily: 'Josefin Sans' }} className='sm:text-2xl md:text-3xl md:mt-1 text-lg text-black font-bold'>{data.username}</p>
+          <p style={{ fontFamily: 'Josefin Sans' }} className='sm:text-2xl md:text-3xl mt-2 md:mt-3 lg:mt-3 text-lg text-black font-bold'>{data.username}</p>
           <span><MdOutlineNetworkWifi className='text-violet-600 mx-1' /></span>
           <span><IoCheckmarkDoneCircle style={{ color: '#62e5a3' }} /></span>
         </div>
