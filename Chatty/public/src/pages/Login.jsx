@@ -17,7 +17,7 @@ function Login() {
     password: '',
   }
 
-  const {values, errors, touched, handleChange, handleSubmit, handleBlur} = useFormik({
+  const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
     initialValues: initialValues,
     validationSchema: loginSchema,
     onSubmit: (values, action) => {
@@ -27,8 +27,8 @@ function Login() {
 
   })
 
-  useEffect(()=>{
-    if(localStorage.getItem('chat-app-user')){
+  useEffect(() => {
+    if (localStorage.getItem('chat-app-user')) {
       navigate('/')
     }
   })
@@ -52,17 +52,17 @@ function Login() {
       theme: 'dark'
     })) : null;
 
-    const {username, password } = values;
-    const {data} = await axios.post(loginRoute,{
+    const { username, password } = values;
+    const { data } = await axios.post(loginRoute, {
       username,
       password
     })
 
     console.log(data)
 
-    if(data.status === false){
+    if (data.status === false) {
       console.log("false")
-      toast.error(data.msg,{
+      toast.error(data.msg, {
         position: 'bottom-right',
         autoClose: 3000,
         pauseOnHover: true,
@@ -70,10 +70,10 @@ function Login() {
         theme: 'dark'
       })
     }
-    if(data.status === true){
+    if (data.status === true) {
       console.log("true")
-      localStorage.setItem('chat-app-user',JSON.stringify(data.user))
-      toast.success(data.msg,{
+      localStorage.setItem('chat-app-user', JSON.stringify(data.user))
+      toast.success(data.msg, {
         position: 'bottom-right',
         autoClose: 3000,
         pauseOnHover: true,
@@ -99,8 +99,36 @@ function Login() {
 
           <input className='bg-transparent p-2 border-2 rounded-md border-blue-400 text-white w-full text-base focus:border-purple-400 focus:outline-none' name='password' type="password" placeholder='Enter password' onBlur={handleBlur} value={values.password} onChange={handleChange} />
 
+          <div className="button-container">
+            <div className="dog">
+              <div className="tail"></div>
+              <div className="body"></div>
+              <div className="head">
+                <div className="eyes">
+                  <div className="left"></div>
+                  <div className="right"></div>
+                </div>
+                <div className="nuzzle">
+                  <div className="mouth">
+                    <div className="tongue"></div>
+                  </div>
+                  <div className="nose">
+                    <div className="nostrils"></div>
+                    <div className="highlight"></div>
+                  </div>
+                </div>
+              </div>
+              <div className="ears">
+                <div className="left"></div>
+                <div className="right"></div>
+              </div>
+            </div>
 
-          <button className='text-white bg-violet-500 px-8 py-4 border-none font-bold text-lg cursor-pointer rounded-sm uppercase hover:bg-violet-400 transition-colors duration-200' type='submit' onClick={handleOnClick}>Login</button>
+            <button className='text-white w-full bg-violet-500 px-8 py-4 border-none font-bold text-lg cursor-pointer rounded-sm uppercase hover:bg-violet-400 transition-colors duration-200' type='submit' onClick={handleOnClick}>Login</button>
+
+            <div className="paw"></div>
+            <div className="paw top"></div>
+          </div>
 
           <span className='text-white uppercase'>Already have an account ? <Link className='text-violet-700 no-underline font-bold' to="/register">Register</Link> </span>
         </form>

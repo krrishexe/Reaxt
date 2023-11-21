@@ -60,9 +60,9 @@ html, body {
 
 .dog {
   position: absolute;
-  width: 65px;
-  height: 65px;
-  top: -10px;
+  width: 60px;
+  height: 60px;
+  top: -12px;
   right: 1px; 
   transform: translate(0, 0) rotate(0);
   transition: 0.3s transform cubic-bezier(0.33, 1, 0.68, 1);
@@ -74,7 +74,7 @@ html, body {
   width: 10%;
   height: 35%;
   left: -50%;
-  bottom: -34%;
+  bottom: -38%;
   transform: rotate(-25deg);
   transition: 0.1s opacity;
   transition-delay: 0s;
