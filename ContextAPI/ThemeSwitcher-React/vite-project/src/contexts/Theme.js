@@ -2,6 +2,7 @@ import { createContext,useContext } from "react";
 
 export const ThemeContext = createContext({
     // default values in this object
+    // not using an extra usestate hook.
     Mode: 'light',
     darkMode: ()=>{},
 })
