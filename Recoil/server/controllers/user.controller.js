@@ -65,5 +65,18 @@ const particularCourse = async (req, res) => {
     }
 }
 
+const purchasedCourses = async (req, res) => {
+    try {
+        const user = await User.findOne({ username: req.user.username }).populate('purchasedCourses');
+        if (user) {
+            res.json({ purchasedCourses: user.purchasedCourses || [] });
+        } else {
+            res.status(403).json({ message: 'User not found' });
+        }
+    } catch (error) {
+        console.log("Error in particular courses : " + error)
+    }
+}
 
-module.exports = { signUpController, loginController, courses, particularCourse }
+
+module.exports = { signUpController, loginController, courses, particularCourse, purchasedCourses }
