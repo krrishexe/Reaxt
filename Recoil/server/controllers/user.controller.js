@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
-const User = require('../db/index.js')
+const User = require('../models/User.model.js')
 const jwt = require('jsonwebtoken')
 
 
 const signUpController = async (req, res) => {
     try {
         const { username, password } = req.body;
+        console.log(username,password)
         const user = await User.findOne({ username });
         if (user) {
             res.status(403).json({ message: 'User already exists' });

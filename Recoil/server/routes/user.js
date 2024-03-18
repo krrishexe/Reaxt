@@ -1,12 +1,13 @@
 const express = require('express');
-const { signUpController, loginController, courses,particularCourse, purchasedCourses } = require('../controllers/user.controller.js')
+const { signUpController, loginController, courses, particularCourse, purchasedCourses } = require('../controllers/user.controller')
+const {authenticateJwt} = require('../middlewares/auth.js')
 const userRouter = express.Router()
 
 
-router.route('/signup').post(signUpController)
-router.route('/login').post(loginController)
-router.route('/courses').post(authenticateJwt, courses)
-router.route('/courses/:courseId').post(authenticateJwt, particularCourse)
-router.route('/purchasedCourses').post(authenticateJwt, purchasedCourses)
+userRouter.route('/signup').post(signUpController)
+userRouter.route('/login').post(loginController)
+userRouter.route('/courses').get(authenticateJwt, courses)
+userRouter.route('/courses/:courseId').post(authenticateJwt, particularCourse)
+userRouter.route('/purchasedCourses').get(authenticateJwt, purchasedCourses)
 
 module.exports = userRouter;
