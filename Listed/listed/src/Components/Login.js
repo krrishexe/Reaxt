@@ -33,7 +33,7 @@ function Login() {
               </button> : 
               <button className='glogo' onClick={() => loginWithRedirect()}> <img src={glogo} alt="" height={"23px"} width={"23px"} /> <p className='para1'>Sign in with Google</p> </button>
             }
-                
+                x
             
             <button className='glogo'>
                  <img  src={alogo} alt="" height={"15px"} width={"13px"} /> <p className='para1'>Sign in with Apple</p> 
