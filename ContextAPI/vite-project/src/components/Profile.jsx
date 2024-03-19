@@ -1,14 +1,23 @@
 import {useContext} from 'react'
 import UserContext from '../context/UserContext'
+import { useRecoilValue } from 'recoil'
+import {userEmail} from "../store/selectors/userEmail"
+import {userPassword} from "../store/selectors/userPassword"
+
 function Profile() {
 
-    const {user} = useContext(UserContext)
+    // const {user} = useContext(UserContext)
+    const userEm = useRecoilValue(userEmail)
+    const userPass = useRecoilValue(userPassword)
+    console.log(userEm,userPass)
   
-    if(!user){
+    if(!userEm){
         return <div>Please Login</div>
     }
     else{
-        return <div>welcome {user.username}</div>
+        return <>
+        <div>welcome {userEm}</div><div>{userPass} is your password</div>
+        </>
     }
 }
 
